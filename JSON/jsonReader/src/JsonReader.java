@@ -50,7 +50,7 @@ public class JsonReader {
     
     public static void processaDados() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader("C:\\Users\\Captain\\Desktop\\JSON\\jsonReader\\src\\res\\166rest.json"));
+        Object obj = parser.parse(new FileReader("C:\\Users\\joaor\\Desktop\\Yum-Yum\\JSON\\jsonReader\\src\\res\\166rest.json"));
         JSONObject jsonObject = (JSONObject) obj;
 
         
