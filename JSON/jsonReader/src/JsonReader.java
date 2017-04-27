@@ -22,8 +22,7 @@ public class JsonReader {
         
         int i = 1;
         for(Restaurant r : rests.values()) {
-            System.out.println(/*i + ": " + r.name + "       " + */r.foto);
-                    //"        " + r.contact + "       " + r.cousine.toString() + "     " + r.price);
+            System.out.println(i + ": " + r.name + "       " + r.addr + "        " + r.contact + "       " + r.cousine.toString() + "     " + r.price);
             System.in.read();
             i++;
         }
