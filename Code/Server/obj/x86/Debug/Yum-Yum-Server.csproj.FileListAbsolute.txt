@@ -1,0 +1,5 @@
+C:\Users\joaor\Desktop\Yum-Yum\Code\Server\bin\Debug\ConsoleApplication.exe
+C:\Users\joaor\Desktop\Yum-Yum\Code\Server\bin\Debug\ConsoleApplication.pdb
+C:\Users\joaor\Desktop\Yum-Yum\Code\Server\obj\x86\Debug\Yum-Yum-Server.csprojResolveAssemblyReference.cache
+C:\Users\joaor\Desktop\Yum-Yum\Code\Server\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\joaor\Desktop\Yum-Yum\Code\Server\obj\x86\Debug\ConsoleApplication.pdb
