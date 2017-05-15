@@ -2,6 +2,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,7 +12,7 @@ public class JsonReader {
     public static Map<String, Restaurant> rests = new TreeMap<>();
     public static ArrayList<String> cousineTypes = new ArrayList<>();
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException, SQLException {
         processaDados();  //Ja valida, comentarios e cozinha (retira N/A's)
         verificaDuplicados();  //Remove entradas duplicadas
         validaCozinha(); //Valida tipo de cozinha
@@ -22,9 +23,10 @@ public class JsonReader {
         
         int i = 1;
         for(Restaurant r : rests.values()) {
-            System.out.println(i + ": " + r.name + "       " + r.addr + "        " + r.contact + "       " + r.cousine.toString() + "     " + r.price);
-            System.in.read();
-            i++;
+            //System.out.println(i + ": " + r.name + "       " + r.addr + "        " + r.contact + "       " + r.cousine.toString() + "     " + r.price);
+            //System.in.read();
+            //i++;
+            DAO_REST.save(r);
         }
     }
     
@@ -49,7 +51,7 @@ public class JsonReader {
     
     public static void processaDados() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader("C:\\Users\\joaor\\Desktop\\Yum-Yum\\JSON\\jsonReader\\src\\res\\166rest.json"));
+        Object obj = parser.parse(new FileReader("C:\\Users\\Carlos\\Desktop\\Yum-Yum\\JSON\\jsonReader\\src\\res\\166rest.json"));
         JSONObject jsonObject = (JSONObject) obj;
 
         
