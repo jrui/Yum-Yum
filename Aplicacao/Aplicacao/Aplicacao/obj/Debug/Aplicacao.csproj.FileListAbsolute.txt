@@ -1,0 +1,17 @@
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Aplicacao.dll
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Aplicacao.pdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Platform.pdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.csprojResolveAssemblyReference.cache
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.MainPage.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.App.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.dll
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.pdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.dll.mdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Aplicacao.dll.mdb

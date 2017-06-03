@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Aplicacao"
+             x:Class="Aplicacao.MainPage"
+             BackgroundImage="background_arranque.jpg">
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="Convidado"
+                Text="Convidado" 
+                FontSize="Large"
+                TextColor="White"
+                Grid.Row="4"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                BackgroundColor="Transparent"/>
+
+        <Button x:Name="Iniciar"
+                FontSize="Large"
+                Grid.Row="6"
+                Grid.ColumnSpan="4"
+                BackgroundColor="White"
+                Opacity="0.3"/>
+
+        <ContentView Grid.ColumnSpan="4" Grid.Row="6" >
+            <Label Text="Iniciar Sessão" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+
+        <Button x:Name="Registar"
+                FontSize="Large"
+                Grid.Row="7"
+                Grid.ColumnSpan="4"
+                BackgroundColor="White"
+                Opacity="0.3"/>
+
+        <ContentView Grid.ColumnSpan="4" Grid.Row="7" >
+            <Label Text="Efetuar Registo" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+
+        <Button x:Name="Help"
+                Text="Help?" 
+                FontSize="Medium"
+                FontAttributes="Bold"
+                Grid.Row="0"
+                Grid.Column="3"
+                BackgroundColor="Transparent"
+                TextColor="Orange"/>
+
+
+
+
+    </Grid>
+</ContentPage>
