@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aplicacao.Interface.Registo"
-             BackgroundImage="wood.jpg">
+             BackgroundImage="talheres_fundo.jpg">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -50,7 +50,7 @@
                TextColor="WhiteSmoke"
                FontSize="Small"
                HorizontalTextAlignment="Center"
-               BackgroundColor="SaddleBrown"/>
+               BackgroundColor="#963300"/>
 
         <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="4" >
             <Label Text="E-mail:" 
@@ -69,7 +69,7 @@
                TextColor="WhiteSmoke"
                FontSize="Small"
                HorizontalTextAlignment="Center"
-               BackgroundColor="SaddleBrown"/>
+               BackgroundColor="#963300"/>
 
         <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="7" >
             <Label Text="Password:" 
@@ -86,7 +86,7 @@
                Placeholder="Introduza Password"
                PlaceholderColor="Black"
                TextColor="WhiteSmoke"
-               BackgroundColor="SaddleBrown"
+               BackgroundColor="#963300"
                FontSize="Small"
                HorizontalTextAlignment="Center"
                IsPassword="True"/>
@@ -106,7 +106,7 @@
                Placeholder="Confirme Password"
                PlaceholderColor="Black"
                TextColor="WhiteSmoke"
-               BackgroundColor="SaddleBrown"
+               BackgroundColor="#963300"
                FontSize="Small"
                HorizontalTextAlignment="Center"
                IsPassword="True"/>

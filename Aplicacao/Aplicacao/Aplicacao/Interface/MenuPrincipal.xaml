@@ -8,26 +8,152 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="3*" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="3*" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="3*" />
             <RowDefinition Height="22*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <SearchBar Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1"
+        <SearchBar Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="2"
+                   x:Name="Pesquisa"
                    Placeholder="Insira Pesquisa"
                    PlaceholderColor="White"
                    BackgroundColor="White"
-                   Opacity="0.7"
+                   Opacity="0.9"
                    TextColor="Black"
                    />
+        <Button Grid.Row="1" Grid.Column="1"
+                Image="mic" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                BackgroundColor="White"
+                Opacity="0.9"/>
+
+        <ContentView Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" >
+            <Label Text="Filtros"
+               Font="Bold, 20"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
+        </ContentView>
+
+        <Button Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"
+                BackgroundColor="White"
+                Opacity="0.9"/>
+
+        <ContentView Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" >
+            <Label Text="Perfil"
+               Font="Bold, 20"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
+        </ContentView>
+
+        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                BackgroundColor="White"
+                Opacity="0.9"/>
+
+        <ContentView Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" >
+            <Label Text="Sugestões"
+               Font="Bold, 20"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
+        </ContentView>
+
+        <Button Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2"
+                BackgroundColor="White"
+                Opacity="0.9"/>
+
+        <ContentView Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" >
+            <Label Text="Resultados"
+               Font="Bold, 20"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
+        </ContentView>
+
+        <Grid x:Name="Painel" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="4">
+            <ScrollView BackgroundColor="White" Opacity="0.9" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="4*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0"
+                           Text="Distância Máxima" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Entry x:Name="Distancia" 
+                           Placeholder="0"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Start"
+                           Grid.Column="1" Grid.Row="0"/>
+
+                    <Button Grid.Column="2" Grid.Row="0"
+                           Text="Kms"
+                           HorizontalOptions="Center"
+                           Font="Bold, 15"
+                           BackgroundColor="White"/>
+
+                    <Label Grid.Column="0" Grid.Row="1"
+                           Text="Rating Minimo" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Picker x:Name="Rating" Grid.Column="1" Grid.Row="1" Title="0" HorizontalOptions="Center">
+                        <Picker.Items>
+                            <x:String>0</x:String>
+                            <x:String>0.5</x:String>
+                            <x:String>1</x:String>
+                            <x:String>1.5</x:String>
+                            <x:String>2</x:String>
+                            <x:String>2.5</x:String>
+                            <x:String>3</x:String>
+                            <x:String>3.5</x:String>
+                            <x:String>4</x:String>
+                            <x:String>4.5</x:String>
+                            <x:String>5</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Button Grid.Column="2" Grid.Row="1"
+                            BackgroundColor="White"
+                            Image="star"/>
+
+                    <Label Grid.Column="0" Grid.Row="2"
+                           Text="Preço Médio Máximo:" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Entry x:Name="Preço" 
+                           Placeholder="0"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Start"
+                           Grid.Column="1" Grid.Row="2"/>
+
+                    <Button Grid.Column="2" Grid.Row="2"
+                           Text="€"
+                           HorizontalOptions="Center"
+                           Font="Bold, 20"
+                           BackgroundColor="White"/>
+
+                </Grid>
+            </ScrollView>
+
+        </Grid>
     </Grid>
 </ContentPage>
