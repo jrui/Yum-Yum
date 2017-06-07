@@ -1,7 +1,7 @@
 USE [Yum-Yum]
 GO
 
-/****** Object:  Table [dbo].[RestaurantesVisitados]    Script Date: 15/05/2017 16:55:04 ******/
+/****** Object:  Table [dbo].[RestaurantesVisitados]    Script Date: 07/06/2017 15:33:53 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,7 +11,12 @@ GO
 CREATE TABLE [dbo].[RestaurantesVisitados](
 	[data] [date] NOT NULL,
 	[utilizador] [int] NOT NULL,
-	[restaurante] [varchar](255) NOT NULL
+	[restaurante] [varchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[utilizador] ASC,
+	[restaurante] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
