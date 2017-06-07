@@ -1,7 +1,7 @@
 USE [Yum-Yum]
 GO
 
-/****** Object:  Table [dbo].[FiltroCozinha]    Script Date: 15/05/2017 16:54:03 ******/
+/****** Object:  Table [dbo].[FiltroCozinha]    Script Date: 07/06/2017 15:33:36 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,7 +10,12 @@ GO
 
 CREATE TABLE [dbo].[FiltroCozinha](
 	[cozinha] [int] NOT NULL,
-	[filtro] [int] NOT NULL
+	[filtro] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[cozinha] ASC,
+	[filtro] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
