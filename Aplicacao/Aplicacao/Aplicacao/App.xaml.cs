@@ -13,7 +13,7 @@ namespace Aplicacao
         {
             InitializeComponent();
 
-            MainPage = new Aplicacao.MainPage();
+            MainPage = new NavigationPage(new  Arranque());
         }
 
         protected override void OnStart()
