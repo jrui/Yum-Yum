@@ -12,7 +12,12 @@ C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.App.xaml.g.cs
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.dll
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.pdb
-C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Arranque.xaml.g.cs
-C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Login.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.Arranque.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.Login.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.About.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.Registo.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.MenuPrincipal.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.dll.mdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Aplicacao.dll.mdb
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.dll.mdb
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Aplicacao.dll.mdb

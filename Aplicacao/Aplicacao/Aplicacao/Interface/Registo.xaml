@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplicacao.Interface.Registo"
+             BackgroundImage="wood.jpg">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="1" >
+            <Label Text="Nome de Utilizador:" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+        <Entry x:Name="Utilizador"
+               Grid.ColumnSpan="7" 
+               Grid.Column="1" 
+               Grid.Row="2"
+               Placeholder="Introduza Nome de Utilizador"
+               PlaceholderColor="Black"
+               TextColor="WhiteSmoke"
+               FontSize="Small"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="SaddleBrown"/>
+
+        <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="4" >
+            <Label Text="E-mail:" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+        <Entry x:Name="Email"
+               Grid.ColumnSpan="7" 
+               Grid.Column="1" 
+               Grid.Row="5"
+               Placeholder="Introduza Endereço de E-mail"
+               PlaceholderColor="Black"
+               TextColor="WhiteSmoke"
+               FontSize="Small"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="SaddleBrown"/>
+
+        <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="7" >
+            <Label Text="Password:" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+        <Entry x:Name="Password"
+               Grid.ColumnSpan="7" 
+               Grid.Column="1" 
+               Grid.Row="8"
+               Placeholder="Introduza Password"
+               PlaceholderColor="Black"
+               TextColor="WhiteSmoke"
+               BackgroundColor="SaddleBrown"
+               FontSize="Small"
+               HorizontalTextAlignment="Center"
+               IsPassword="True"/>
+
+        <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="10" >
+            <Label Text="Confirmar Password:" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+        <Entry x:Name="ConfirmaPassword"
+               Grid.ColumnSpan="7" 
+               Grid.Column="1" 
+               Grid.Row="11"
+               Placeholder="Confirme Password"
+               PlaceholderColor="Black"
+               TextColor="WhiteSmoke"
+               BackgroundColor="SaddleBrown"
+               FontSize="Small"
+               HorizontalTextAlignment="Center"
+               IsPassword="True"/>
+
+        <Button x:Name="Registar"
+                FontSize="Large"
+                Grid.Row="13"
+                Grid.ColumnSpan="9"
+                BackgroundColor="White"
+                Opacity="0.5"/>
+
+        <ContentView Grid.ColumnSpan="9" Grid.Row="13" >
+            <Label Text="Registar"
+                   Font="Bold, 30"
+                   TextColor="Black"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+
+    </Grid>
+</ContentPage>

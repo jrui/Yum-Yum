@@ -72,6 +72,7 @@ C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\a
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\background_arranque.jpg
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\wood.jpg
-C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\menu_arranque.jpg
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\about_page.jpg
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\menudearranque.jpg
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\Aplicacao.Android.dll.mdb
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\bin\Debug\Aplicacao.Android.dll.mdb

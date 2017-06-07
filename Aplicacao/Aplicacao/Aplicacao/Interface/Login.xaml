@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplicacao.Login"
+             BackgroundImage="wood.jpg">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="1" >
+            <Label Text="Nome de Utilizador:" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+        <Entry x:Name="Utilizador"
+               Grid.ColumnSpan="7" 
+               Grid.Column="1" 
+               Grid.Row="2"
+               Placeholder="Introduza Nome de Utilizador"
+               PlaceholderColor="Black"
+               TextColor="WhiteSmoke"
+               FontSize="Small"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="SaddleBrown"/>
+
+        <ContentView Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="5" >
+            <Label Text="Palavra-Passe:" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+        <Entry x:Name="Password"
+               Grid.ColumnSpan="7" 
+               Grid.Column="1" 
+               Grid.Row="6"
+               Placeholder="Introduza Palavra-Passe"
+               PlaceholderColor="Black"
+               TextColor="WhiteSmoke"
+               FontSize="Small"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="SaddleBrown"
+               IsPassword="True"/>
+
+        <Button x:Name="Iniciar"
+                Grid.Row="11"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="9"
+                BackgroundColor="White"
+                Opacity="0.5"
+                Clicked="IniciarButton_Clicked"/>
+
+        <ContentView Grid.ColumnSpan="9" Grid.Row="11" Grid.RowSpan="2" >
+            <Label Text="Iniciar Sessão"
+                   Font="Bold, 30"
+                   TextColor="Black"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"/>
+        </ContentView>
+    </Grid>
+</ContentPage>
