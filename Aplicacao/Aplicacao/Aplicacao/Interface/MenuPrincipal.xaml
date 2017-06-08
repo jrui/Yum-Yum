@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aplicacao.Interface.MenuPrincipal"
              BackgroundImage="background_arranque">
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="3*" />
             <RowDefinition Height="3*" />
             <RowDefinition Height="3*" />
-            <RowDefinition Height="22*" />
+            <RowDefinition Height="25*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -34,7 +34,8 @@
 
         <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                 BackgroundColor="White"
-                Opacity="0.9"/>
+                Opacity="0.9"
+                Clicked="FiltrosButton_Clicked"/>
 
         <ContentView Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" >
             <Label Text="Filtros"
@@ -45,7 +46,8 @@
 
         <Button Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"
                 BackgroundColor="White"
-                Opacity="0.9"/>
+                Opacity="0.9"
+                Clicked="PerfilButton_Clicked"/>
 
         <ContentView Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" >
             <Label Text="Perfil"
@@ -76,18 +78,19 @@
                VerticalTextAlignment="Center"/>
         </ContentView>
 
-        <Grid x:Name="Painel" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="4">
-            <ScrollView BackgroundColor="White" Opacity="0.9" Padding="5">
+        <Grid Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="4">
+            <!-- Filtros -->
+            <ScrollView BackgroundColor="White" Opacity="0.9" Padding="5" x:Name="PainelFiltros" IsVisible="False">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="17*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="7*"/>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
@@ -97,10 +100,11 @@
                            VerticalTextAlignment="End"
                            Font="Bold, 20"/>
 
-                    <Entry x:Name="Distancia" 
+                    <Entry x:Name="DistanciaF"
+                           Keyboard="Numeric"
                            Placeholder="0"
                            HorizontalTextAlignment="Center"
-                           VerticalOptions="Start"
+                           VerticalOptions="End"
                            Grid.Column="1" Grid.Row="0"/>
 
                     <Button Grid.Column="2" Grid.Row="0"
@@ -114,7 +118,7 @@
                            VerticalTextAlignment="End"
                            Font="Bold, 20"/>
 
-                    <Picker x:Name="Rating" Grid.Column="1" Grid.Row="1" Title="0" HorizontalOptions="Center">
+                    <Picker x:Name="RatingF" Grid.Column="1" Grid.Row="1" Title="0" WidthRequest="60" HorizontalOptions="End" VerticalOptions="End">
                         <Picker.Items>
                             <x:String>0</x:String>
                             <x:String>0.5</x:String>
@@ -139,10 +143,11 @@
                            VerticalTextAlignment="End"
                            Font="Bold, 20"/>
 
-                    <Entry x:Name="Preço" 
+                    <Entry x:Name="PrecoF" 
+                           Keyboard="Numeric"
                            Placeholder="0"
                            HorizontalTextAlignment="Center"
-                           VerticalOptions="Start"
+                           VerticalOptions="End"
                            Grid.Column="1" Grid.Row="2"/>
 
                     <Button Grid.Column="2" Grid.Row="2"
@@ -151,9 +156,278 @@
                            Font="Bold, 20"
                            BackgroundColor="White"/>
 
+                    <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3"
+                           Text="Cozinhas a ocultar:" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Grid Grid.Row="4" Grid.Column="0">
+                        <ScrollView x:Uid="sv1" x:Name="NomesF" Scrolled="ScrollChanged">
+                            <StackLayout>
+                                <Label Text="Europeu" Font="Bold, 20"/>
+                                <Label Text="Português" Font="Bold, 20"/>
+                                <Label Text="Contemporâneo" Font="Bold, 20"/>
+                                <Label Text="Pub" Font="Bold, 20"/>
+                                <Label Text="Vegan" Font="Bold, 20"/>
+                                <Label Text="Asiático" Font="Bold, 20"/>
+                                <Label Text="Mediterrâneo" Font="Bold, 20"/>
+                                <Label Text="Sushi" Font="Bold, 20"/>
+                                <Label Text="Americana" Font="Bold, 20"/>
+                                <Label Text="Sem Glúten" Font="Bold, 20"/>
+                                <Label Text="Internacional" Font="Bold, 20"/>
+                                <Label Text="Saudável" Font="Bold, 20"/>
+                                <Label Text="Grill" Font="Bold, 20"/>
+                                <Label Text="Churrasco" Font="Bold, 20"/>
+                                <Label Text="Espanhol" Font="Bold, 20"/>
+                                <Label Text="Venezuelana" Font="Bold, 20"/>
+                                <Label Text="Japonesa" Font="Bold, 20"/>
+                                <Label Text="Marisco" Font="Bold, 20"/>
+                                <Label Text="Sopas" Font="Bold, 20"/>
+                                <Label Text="Italiana" Font="Bold, 20"/>
+                                <Label Text="Mexicana" Font="Bold, 20"/>
+                                <Label Text="Pizza" Font="Bold, 20"/>
+                                <Label Text="Indiana" Font="Bold, 20"/>
+                                <Label Text="Tailandês" Font="Bold, 20"/>
+                                <Label Text="Fast food" Font="Bold, 20"/>
+                                <Label Text="Steakhouse" Font="Bold, 20"/>
+                                <Label Text="Alemã" Font="Bold, 20"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
+
+                    <Grid Grid.Row="4" Grid.Column="1">
+                        <ScrollView x:Uid="sv2" x:Name="EstadosF" Scrolled="ScrollChanged" HeightRequest="100">
+                            <StackLayout>
+                                <Switch x:Name="EuropeuF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="PortuguesF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="ContemporaneoF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="PubF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="VeganF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="AsiaticoF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="MediterraneoF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SushiF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="AmericanaF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="Sem_GlutenF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="InternacionalF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SaudavelF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="GrillF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="ChurrascoF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="EspanholF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="VenezuelanaF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="JaponesaF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="MariscoF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SopasF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="ItalianaF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="MexicanaF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="PizzaF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="IndianaF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="TailandesF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="Fast_foodF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SteakhouseF" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="AlemaF" IsToggled="True" Toggled="CozinhasToggle"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
                 </Grid>
             </ScrollView>
+            <!-- Filtros End -->
+            
+            <!-- Perfil -->
+            <ScrollView BackgroundColor="White" Opacity="0.9" Padding="5" x:Name="PainelPerfil" IsVisible="False">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="17*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
 
+                    <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"
+                           Text="Filtros Pré-definidos"
+                           HorizontalTextAlignment="Center"
+                           Font="Bold, 20"/>
+
+                    <Label Grid.Column="0" Grid.Row="1"
+                           Text="Distância Máxima" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Entry x:Name="DistanciaP"
+                           Keyboard="Numeric"
+                           Placeholder="0"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="End"
+                           Grid.Column="1" Grid.Row="1"/>
+
+                    <Button Grid.Column="2" Grid.Row="1"
+                           Text="Kms"
+                           HorizontalOptions="Center"
+                           Font="Bold, 15"
+                           BackgroundColor="White"/>
+
+                    <Label Grid.Column="0" Grid.Row="2"
+                           Text="Rating Minimo" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Picker x:Name="RatingP" Grid.Column="1" Grid.Row="2" Title="0" WidthRequest="60" HorizontalOptions="End" VerticalOptions="End">
+                        <Picker.Items>
+                            <x:String>0</x:String>
+                            <x:String>0.5</x:String>
+                            <x:String>1</x:String>
+                            <x:String>1.5</x:String>
+                            <x:String>2</x:String>
+                            <x:String>2.5</x:String>
+                            <x:String>3</x:String>
+                            <x:String>3.5</x:String>
+                            <x:String>4</x:String>
+                            <x:String>4.5</x:String>
+                            <x:String>5</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Button Grid.Column="2" Grid.Row="2"
+                            BackgroundColor="White"
+                            Image="star"/>
+
+                    <Label Grid.Column="0" Grid.Row="3"
+                           Text="Preço Médio Máximo:" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Entry x:Name="PrecoP" 
+                           Keyboard="Numeric"
+                           Placeholder="0"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="End"
+                           Grid.Column="1" Grid.Row="3"/>
+
+                    <Button Grid.Column="2" Grid.Row="3"
+                           Text="€"
+                           HorizontalOptions="Center"
+                           Font="Bold, 20"
+                           BackgroundColor="White"/>
+
+                    <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4"
+                           HorizontalTextAlignment="Center"
+                           Text="Tipos de Cozinha Desejados :" 
+                           VerticalTextAlignment="End"
+                           Font="Bold, 20"/>
+
+                    <Grid Grid.Row="5" Grid.Column="0">
+                        <ScrollView x:Uid="sv1" x:Name="NomesP" Scrolled="ScrollChanged">
+                            <StackLayout>
+                                <Label Text="Europeu" Font="Bold, 20"/>
+                                <Label Text="Português" Font="Bold, 20"/>
+                                <Label Text="Contemporâneo" Font="Bold, 20"/>
+                                <Label Text="Pub" Font="Bold, 20"/>
+                                <Label Text="Vegan" Font="Bold, 20"/>
+                                <Label Text="Asiático" Font="Bold, 20"/>
+                                <Label Text="Mediterrâneo" Font="Bold, 20"/>
+                                <Label Text="Sushi" Font="Bold, 20"/>
+                                <Label Text="Americana" Font="Bold, 20"/>
+                                <Label Text="Sem Glúten" Font="Bold, 20"/>
+                                <Label Text="Internacional" Font="Bold, 20"/>
+                                <Label Text="Saudável" Font="Bold, 20"/>
+                                <Label Text="Grill" Font="Bold, 20"/>
+                                <Label Text="Churrasco" Font="Bold, 20"/>
+                                <Label Text="Espanhol" Font="Bold, 20"/>
+                                <Label Text="Venezuelana" Font="Bold, 20"/>
+                                <Label Text="Japonesa" Font="Bold, 20"/>
+                                <Label Text="Marisco" Font="Bold, 20"/>
+                                <Label Text="Sopas" Font="Bold, 20"/>
+                                <Label Text="Italiana" Font="Bold, 20"/>
+                                <Label Text="Mexicana" Font="Bold, 20"/>
+                                <Label Text="Pizza" Font="Bold, 20"/>
+                                <Label Text="Indiana" Font="Bold, 20"/>
+                                <Label Text="Tailandês" Font="Bold, 20"/>
+                                <Label Text="Fast food" Font="Bold, 20"/>
+                                <Label Text="Steakhouse" Font="Bold, 20"/>
+                                <Label Text="Alemã" Font="Bold, 20"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <ScrollView x:Uid="sv2" x:Name="EstadosP" Scrolled="ScrollChanged">
+                            <StackLayout>
+                                <Switch x:Name="EuropeuP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="PortuguesP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="ContemporaneoP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="PubP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="VeganP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="AsiaticoP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="MediterraneoP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SushiP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="AmericanaP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="Sem_GlutenP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="InternacionalP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SaudavelP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="GrillP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="ChurrascoP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="EspanholP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="VenezuelanaP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="JaponesaP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="MariscoP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SopasP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="ItalianaP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="MexicanaP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="PizzaP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="IndianaP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="TailandesP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="Fast_foodP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="SteakhouseP" Toggled="CozinhasToggle"/>
+                                <Switch x:Name="AlemaP" IsToggled="True" Toggled="CozinhasToggle"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+            <!-- Perfil End -->
+            <!-- Sugestões -->
+            <ScrollView BackgroundColor="White" Opacity="0.9" Padding="5" x:Name="PainelSugestoes" IsVisible="True">
+
+                <Grid x:Name="GridSugestoes">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout x:Name="StackSugestoesImagens" Grid.RowSpan="3" Grid.ColumnSpan="4">
+
+
+                        <Button Image="icon" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"/>
+
+                        <Button Image="icon" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"/>
+
+                        <Label Text="Taberna Belga" Font="Bold, 20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                               Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3"/>
+
+                        <Label Text="Taberna Belga" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" 
+                               Grid.Column="1"  Grid.ColumnSpan="2" Grid.Row="1"/>
+                        <Label Text="Taberna Belga" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                               Grid.Column="1"  Grid.ColumnSpan="2" Grid.Row="1"/>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </ScrollView>
         </Grid>
+
     </Grid>
 </ContentPage>

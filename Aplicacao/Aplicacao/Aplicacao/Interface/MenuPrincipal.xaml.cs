@@ -18,18 +18,43 @@ namespace Aplicacao.Interface
             InitializeComponent();
         }
 
-        private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void FiltrosButton_Clicked(object sender, EventArgs e)
         {
-            e.Handled = IsTextNumeric(e.Text);
-
+            PainelPerfil.IsVisible = false;
+            PainelFiltros.IsVisible = true;
         }
 
-
-        private static bool IsTextNumeric(string str)
+        private void PerfilButton_Clicked(object sender, EventArgs e)
         {
-            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("[^0-9]");
-            return reg.IsMatch(str);
+            PainelPerfil.IsVisible = true;
+            PainelFiltros.IsVisible = false;
+        }
 
+        private async void CozinhasToggle(object sender, EventArgs e)
+        {
+            Switch sw = sender as Switch;
+            if (sw != null)
+            {
+                if (sw.IsToggled == true)
+                {
+                    await Navigation.PushAsync(new MenuPrincipal());
+                }
+            }
+        }
+
+        private void ScrollChanged(object sender, ScrolledEventArgs e)
+        {
+            ScrollView sen = sender as ScrollView;
+            if (sen.Id.Equals("sv1"))
+            {
+                EstadosF.ScrollToAsync(0,e.ScrollY, true);
+                EstadosP.ScrollToAsync(0, e.ScrollY, true);
+            }
+            else
+            {
+                NomesF.ScrollToAsync(0, e.ScrollY, true);
+                NomesP.ScrollToAsync(0, e.ScrollY, true);
+            }
         }
     }
 }
