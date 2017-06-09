@@ -53,6 +53,9 @@
     <Compile Include="Interface\Registo.xaml.cs">
       <DependentUpon>Registo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interface\Restaurante.xaml.cs">
+      <DependentUpon>Restaurante.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Interface\MenuPrincipal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Interface\Restaurante.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

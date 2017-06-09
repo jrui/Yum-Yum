@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplicacao.Interface.Restaurante"
+             BackgroundImage="wood">
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="Titulo" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="Arcoense" Font="Bold, 30" TextColor="White" 
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+            <Label Text="Rating:" Grid.Row="1" Grid.Column="1"
+                   TextColor="OrangeRed" Font="Bold, 25"/>
+
+            <Label x:Name="Rating" Text="4.5" Grid.Row="2" Grid.Column="1"
+                   TextColor="Yellow" Font="Bold, 20"/>
+            
+            <Label Text="Preco Médio:" Grid.Row="3" Grid.Column="1"
+                   TextColor="OrangeRed" Font="Bold, 25"/>
+
+            <Label x:Name="Preco" Text="$$$-$$$$" Grid.Row="4" Grid.Column="1"
+                   TextColor="Yellow" Font="Bold, 20"/>
+
+            <Label Text="Distância:" Grid.Row="5" Grid.Column="1"
+                   TextColor="OrangeRed" Font="Bold, 25"/>
+
+            <Label x:Name="Distancia" Text="2.4 Kms" Grid.Row="6" Grid.Column="1"
+                   TextColor="Yellow" Font="Bold, 20"/>
+
+            <Image Source="icon" Grid.Row="1" Grid.RowSpan="6" Grid.Column="0"
+                   HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand"/>
+
+            <Button x:Name="Reviews" Grid.Row="7" Grid.Column="0"
+                    BackgroundColor="White" Opacity="0.4"/>
+
+            <Label Grid.Row="7" Grid.Column="0"
+                   Text="Reviews(10)" Font="Bold, 20" TextColor="Black"
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+            <Button x:Name="Comentario" Grid.Row="7" Grid.Column="1"
+                    BackgroundColor="White" Opacity="0.4"/>
+
+            <Label Grid.Row="7" Grid.Column="1"
+                   Text="Deixar Comentário" Font="Bold, 20" TextColor="Black"
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Morada:" Grid.Row="8" Grid.Column="0"
+                   TextColor="OrangeRed" Font="Bold, 20" VerticalTextAlignment="Start"/>
+
+            <Label x:Name="Morada" Grid.Row="9" Grid.Column="0"
+                   Text="Rua Engenheiro José Justino Amorim 96 Braga 4715-023"
+                   TextColor="White" Font="Bold, 15" VerticalTextAlignment="Start"/>
+
+            <Button Image="Map2" Grid.Row="8" Grid.RowSpan="2" Grid.Column="1"
+                    BackgroundColor="Transparent"/>
+
+            <Button x:Name="Telefone" Grid.Row="10" Grid.Column="0"
+                    BackgroundColor="Transparent"/>
+
+            <Label Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="+351 253 278 952" HorizontalTextAlignment="Start"
+                   Font="Bold, 15" TextColor="White" VerticalTextAlignment="Start"/>
+
+            <Image Source="phone2" Grid.Row="10" Grid.Column="0"
+                   HorizontalOptions = "Start" VerticalOptions = "FillAndExpand"/>
+
+            <Button Grid.Row="11" Grid.Column="1"
+                    BackgroundColor="Transparent"/>
+
+            <Label Grid.Row="10" Grid.Column="1"
+                   Text="Adicionar ao Histórico" HorizontalTextAlignment="End"
+                   Font="Bold, 15" TextColor="White" VerticalTextAlignment="End"/>
+
+            <Image Source="history2" Grid.Row="11" Grid.Column="1"
+                   HorizontalOptions = "End"/>
+
+            <Label Text="Pratos:" TextColor="Black" Grid.ColumnSpan="2" Grid.Row="12"
+                   HorizontalTextAlignment="Center" Font="Bold, 30"/>
+
+            <Grid Grid.Row="13" Grid.ColumnSpan="2"  BackgroundColor="White" Opacity="0.8" Margin="30">
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout x:Name="PratosNome" Grid.Column="0">
+
+                    <Label Text="Rodovalho Grelhado" Grid.Column="0"/>
+                    <Label Text="Garnizé" Grid.Column="0"/>
+                    <Label Text="Cozido à Portuguesa" Grid.Column="0"/>
+                    <Label Text="Chanfana de cabrito" Grid.Column="0"/>
+                    <Label Text="Pato Bravo" Grid.Column="0"/>
+                    <Label Text="Papas de sarrabulho com rojões" Grid.Column="0"/>
+                    <Label Text="Rojões à minhoto" Grid.Column="0"/>
+                    <Label Text="Rojões à minhoto" Grid.Column="0"/>
+
+                </StackLayout>
+
+                <StackLayout x:Name="PratosPreco" Grid.Column="1">
+
+                    <Label Text="22€" Grid.Column="1"/>
+                    <Label Text="6.6€" Grid.Column="1"/>
+                    <Label Text="66€" Grid.Column="1"/>
+                    <Label Text="2€" Grid.Column="1"/>
+                    <Label Text="2.5€" Grid.Column="1"/>
+                    <Label Text="3.50€" Grid.Column="1"/>
+                    <Label Text="450€" Grid.Column="1"/>
+                    <Label Text="69€" Grid.Column="1"/>
+
+                </StackLayout>
+
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

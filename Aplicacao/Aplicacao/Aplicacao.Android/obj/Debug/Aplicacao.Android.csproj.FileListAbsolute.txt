@@ -78,5 +78,8 @@ C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\r
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\mic.png
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\filter.png
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\star.bmp
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\history2.png
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\map2.png
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\phone2.png
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\Aplicacao.Android.dll.mdb
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\bin\Debug\Aplicacao.Android.dll.mdb
