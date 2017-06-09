@@ -86,7 +86,7 @@ namespace Aplicacao.Interface
             Switch sw = sender as Switch;
             if (sw != null)
             {
-                if (sw.Id.Equals() await DisplayAlert("Aviso", "Europeu", "Ok");
+                if (sw.Id.Equals("")) await DisplayAlert("Aviso", "Europeu", "Ok");
             }
         }
 
