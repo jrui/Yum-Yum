@@ -31,7 +31,8 @@
                 Grid.Row="5"
                 Grid.Column="2"
                 Grid.ColumnSpan="2"
-                BackgroundColor="Transparent"/>
+                BackgroundColor="Transparent"
+                Clicked="ConvidadoButton_Clicked"/>
 
         <Button x:Name="Iniciar"
                 FontSize="Large"

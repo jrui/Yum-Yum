@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplicacao.Interface.Restaurante"
+             x:Class="Aplicacao.Interface.Restaurantes"
              BackgroundImage="wood">
 
     <ScrollView>
@@ -28,7 +28,7 @@
             </Grid.ColumnDefinitions>
 
             <Label x:Name="Titulo" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-                   Text="Arcoense" Font="Bold, 30" TextColor="White" 
+                   Font="Bold, 30" TextColor="White" 
                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
             <Label Text="Rating:" Grid.Row="1" Grid.Column="1"
@@ -49,11 +49,12 @@
             <Label x:Name="Distancia" Text="2.4 Kms" Grid.Row="6" Grid.Column="1"
                    TextColor="Yellow" Font="Bold, 20"/>
 
-            <Image Source="icon" Grid.Row="1" Grid.RowSpan="6" Grid.Column="0"
+            <Image x:Name="Foto" Grid.Row="1" Grid.RowSpan="6" Grid.Column="0"
                    HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand"/>
 
             <Button x:Name="Reviews" Grid.Row="7" Grid.Column="0"
-                    BackgroundColor="White" Opacity="0.4"/>
+                    BackgroundColor="White" Opacity="0.4"
+                    Clicked="ReviewsButton_Clicked"/>
 
             <Label Grid.Row="7" Grid.Column="0"
                    Text="Reviews(10)" Font="Bold, 20" TextColor="Black"
@@ -76,11 +77,11 @@
             <Button Image="Map2" Grid.Row="8" Grid.RowSpan="2" Grid.Column="1"
                     BackgroundColor="Transparent"/>
 
-            <Button x:Name="Telefone" Grid.Row="10" Grid.Column="0"
+            <Button Grid.Row="10" Grid.Column="0"
                     BackgroundColor="Transparent"/>
 
             <Label Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2"
-                   Text="+351 253 278 952" HorizontalTextAlignment="Start"
+                   x:Name="Telefone" HorizontalTextAlignment="Start"
                    Font="Bold, 15" TextColor="White" VerticalTextAlignment="Start"/>
 
             <Image Source="phone2" Grid.Row="10" Grid.Column="0"
@@ -107,33 +108,18 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <StackLayout x:Name="PratosNome" Grid.Column="0">
+                <StackLayout x:Name="PratosNome" Grid.Column="0"/>
 
-                    <Label Text="Rodovalho Grelhado" Grid.Column="0"/>
-                    <Label Text="Garnizé" Grid.Column="0"/>
-                    <Label Text="Cozido à Portuguesa" Grid.Column="0"/>
-                    <Label Text="Chanfana de cabrito" Grid.Column="0"/>
-                    <Label Text="Pato Bravo" Grid.Column="0"/>
-                    <Label Text="Papas de sarrabulho com rojões" Grid.Column="0"/>
-                    <Label Text="Rojões à minhoto" Grid.Column="0"/>
-                    <Label Text="Rojões à minhoto" Grid.Column="0"/>
-
-                </StackLayout>
-
-                <StackLayout x:Name="PratosPreco" Grid.Column="1">
-
-                    <Label Text="22€" Grid.Column="1"/>
-                    <Label Text="6.6€" Grid.Column="1"/>
-                    <Label Text="66€" Grid.Column="1"/>
-                    <Label Text="2€" Grid.Column="1"/>
-                    <Label Text="2.5€" Grid.Column="1"/>
-                    <Label Text="3.50€" Grid.Column="1"/>
-                    <Label Text="450€" Grid.Column="1"/>
-                    <Label Text="69€" Grid.Column="1"/>
-
-                </StackLayout>
+                <StackLayout x:Name="PratosPreco" Grid.Column="1"/>
 
             </Grid>
+
+            <ScrollView Grid.Row="8" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="True"
+                        BackgroundColor="White" Opacity="1">
+                
+                <StackLayout x:Name="StackReviews"/>
+                
+            </ScrollView>
 
         </Grid>
     </ScrollView>

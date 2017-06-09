@@ -12,26 +12,39 @@ namespace Aplicacao.Interface
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Registo : ContentPage
     {
-        public Registo()
+        Database db;
+
+        public Registo(Database d)
         {
+            db = d;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
         private async void RegistarButton_Clicked(object sender, EventArgs e)
         {
+            Boolean existente = false;
             if (Password.Text == null || Email.Text == null || ConfirmaPassword.Text == null || Utilizador.Text == null)
                 await DisplayAlert("Aviso", "Preencha todos os Campos", "Ok");
             else
             {
                 if (Password.Text.Equals(ConfirmaPassword.Text))
                 {
-                    if (!Utilizador.Text.Equals("Username"))
+                    foreach(Utilizador u in db.utilizador)
                     {
-                        Utilizador.Text = " Registado Utilizador " + Utilizador.Text;
-                        Email.Text = " Registado Utilizador " + Email.Text;
+                        if (u.username.Equals(Utilizador.Text)) {
+                            await DisplayAlert("Aviso", "Username Existente", "Ok");
+                            existente = true;
+                            break;
+                        }
                     }
-                    else await DisplayAlert("Aviso", "Username Utilizado", "Ok");
+                    if (!existente)
+                    {
+                        Utilizador novo = new Utilizador(db.utilizador.Count + 1, Email.Text, Utilizador.Text, Password.Text, 0);
+                        db.utilizador.Add(novo);
+                        db.curr_user = novo;
+                        await Navigation.PushAsync(new MenuPrincipal(db));
+                    }
                 }
                 else await DisplayAlert("Aviso", "Passwords não coincidem", "Ok");
             }

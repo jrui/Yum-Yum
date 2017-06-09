@@ -27,12 +27,14 @@
                    PlaceholderColor="White"
                    BackgroundColor="White"
                    Opacity="0.9"
-                   TextColor="Black"/>
+                   TextColor="Black"
+                   SearchButtonPressed="PesquisarButton_Clicked"/>
         
         <Button Grid.Row="1" Grid.Column="1"
                 Image="mic" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
-        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+        <Button x:Name="Filtros"
+                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                 BackgroundColor="White"
                 Opacity="0.9"
                 Clicked="FiltrosButton_Clicked"/>
@@ -113,7 +115,8 @@
                            Text="Kms"
                            HorizontalOptions="Center"
                            Font="Bold, 15"
-                           BackgroundColor="White"/>
+                           BackgroundColor="White"
+                           Clicked="DistanciaFButton_Clicked"/>
 
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Rating Minimo" 
@@ -138,7 +141,8 @@
 
                     <Button Grid.Column="2" Grid.Row="1"
                             BackgroundColor="White"
-                            Image="star"/>
+                            Image="star"
+                            Clicked="RatingFButton_Clicked"/>
 
                     <Label Grid.Column="0" Grid.Row="2"
                            Text="Preço Médio Máximo:" 
@@ -153,10 +157,11 @@
                            Grid.Column="1" Grid.Row="2"/>
 
                     <Button Grid.Column="2" Grid.Row="2"
-                           Text="€"
-                           HorizontalOptions="Center"
-                           Font="Bold, 20"
-                           BackgroundColor="White"/>
+                            Text="€"
+                            HorizontalOptions="Center"
+                            Font="Bold, 20"
+                            BackgroundColor="White"
+                            Clicked="PrecoFButton_Clicked"/>
 
                     <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3"
                            Text="Cozinhas a ocultar:" 
@@ -200,33 +205,33 @@
                     <Grid Grid.Row="4" Grid.Column="1">
                         <ScrollView x:Uid="sv2" x:Name="EstadosF" Scrolled="ScrollChanged" HeightRequest="100">
                             <StackLayout>
-                                <Switch x:Uid="EuropeuF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="PortuguesF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="ContemporaneoF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="PubF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="VeganF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="AsiaticoF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="MediterraneoF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="SushiF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="AmericanaF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="Sem_GlutenF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="InternacionalF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="SaudavelF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="GrillF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="ChurrascoF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="EspanholF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="VenezuelanaF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="JaponesaF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="MariscoF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="SopasF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="ItalianaF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="MexicanaF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="PizzaF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="IndianaF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="TailandesF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="Fast_foodF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="SteakhouseF" Toggled="CozinhasToggleFiltros"/>
-                                <Switch x:Uid="AlemaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="1" x:Name="Switch1F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="2" x:Name="Switch2F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="3" x:Name="Switch3F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="4" x:Name="Switch4F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="5" x:Name="Switch5F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="6" x:Name="Switch6F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="7" x:Name="Switch7F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="8" x:Name="Switch8F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="9" x:Name="Switch9F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="10" x:Name="Switch10F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="11" x:Name="Switch11F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="12" x:Name="Switch12F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="13" x:Name="Switch13F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="14" x:Name="Switch14F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="15" x:Name="Switch15F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="16" x:Name="Switch16F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="17" x:Name="Switch17F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="18" x:Name="Switch18F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="19" x:Name="Switch19F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="20" x:Name="Switch20F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="21" x:Name="Switch21F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="22" x:Name="Switch22F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="23" x:Name="Switch23F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="24" x:Name="Switch24F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="25" x:Name="Switch25F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="26" x:Name="Switch26F" Toggled="CozinhasToggleFiltros"/>
+                                <Switch AutomationId="27" x:Name="Switch27F" Toggled="CozinhasToggleFiltros"/>
                             </StackLayout>
                         </ScrollView>
                     </Grid>
@@ -269,10 +274,11 @@
                            Grid.Column="1" Grid.Row="1"/>
 
                     <Button Grid.Column="2" Grid.Row="1"
-                           Text="Kms"
-                           HorizontalOptions="Center"
-                           Font="Bold, 15"
-                           BackgroundColor="White"/>
+                            Text="Kms"
+                            HorizontalOptions="Center"
+                            Font="Bold, 15"
+                            BackgroundColor="White"
+                            Clicked="DistanciaPButton_Clicked"/>
 
                     <Label Grid.Column="0" Grid.Row="2"
                            Text="Rating Minimo" 
@@ -297,7 +303,8 @@
 
                     <Button Grid.Column="2" Grid.Row="2"
                             BackgroundColor="White"
-                            Image="star"/>
+                            Image="star"
+                            Clicked="RatingPButton_Clicked"/>
 
                     <Label Grid.Column="0" Grid.Row="3"
                            Text="Preço Médio Máximo:" 
@@ -312,10 +319,11 @@
                            Grid.Column="1" Grid.Row="3"/>
 
                     <Button Grid.Column="2" Grid.Row="3"
-                           Text="€"
-                           HorizontalOptions="Center"
-                           Font="Bold, 20"
-                           BackgroundColor="White"/>
+                            Text="€"
+                            HorizontalOptions="Center"
+                            Font="Bold, 20"
+                            BackgroundColor="White"
+                            Clicked="PrecoPButton_Clicked"/>
 
                     <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4"
                            HorizontalTextAlignment="Center"
@@ -360,33 +368,33 @@
                     <Grid Grid.Row="5" Grid.Column="1">
                         <ScrollView x:Uid="sv2" x:Name="EstadosP" Scrolled="ScrollChanged">
                             <StackLayout>
-                                <Switch x:Uid="EuropeuP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="PortuguesP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="ContemporaneoP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="PubP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="VeganP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="AsiaticoP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="MediterraneoP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="SushiP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="AmericanaP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="Sem_GlutenP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="InternacionalP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="SaudavelP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="GrillP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="ChurrascoP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="EspanholP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="VenezuelanaP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="JaponesaP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="MariscoP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="SopasP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="ItalianaP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="MexicanaP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="PizzaP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="IndianaP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="TailandesP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="Fast_foodP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="SteakhouseP" Toggled="CozinhasTogglePerfil"/>
-                                <Switch x:Uid="AlemaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="1" x:Name="Switch1" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="2" x:Name="Switch2" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="3" x:Name="Switch3" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="4" x:Name="Switch4" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="5" x:Name="Switch5" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="6" x:Name="Switch6" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="7" x:Name="Switch7" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="8" x:Name="Switch8" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="9" x:Name="Switch9" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="10" x:Name="Switch10" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="11" x:Name="Switch11" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="12" x:Name="Switch12" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="13" x:Name="Switch13" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="14" x:Name="Switch14" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="15" x:Name="Switch15" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="16" x:Name="Switch16" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="17" x:Name="Switch17" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="18" x:Name="Switch18" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="19" x:Name="Switch19" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="20" x:Name="Switch20" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="21" x:Name="Switch21" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="22" x:Name="Switch22" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="23" x:Name="Switch23" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="24" x:Name="Switch24" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="25" x:Name="Switch25" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="26" x:Name="Switch26" Toggled="CozinhasTogglePerfil"/>
+                                <Switch AutomationId="27" x:Name="Switch27" Toggled="CozinhasTogglePerfil"/>
                             </StackLayout>
                         </ScrollView>
                     </Grid>
@@ -416,7 +424,9 @@
 
                     <StackLayout x:Name="SugestoesImagensTrending"  Grid.Row="1" Grid.Column="0">
 
-                        <Button Image="icon" BackgroundColor="White" Clicked="AddImagemTrending"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="SugestoesButtonsTrending"  Grid.Row="1" Grid.Column="0">
 
                     </StackLayout>
 
@@ -431,7 +441,9 @@
 
                     <StackLayout x:Name="SugestoesImagensUltimos"  Grid.Row="3" Grid.Column="0">
 
-                        <Button Image="icon" BackgroundColor="White" Clicked="AddImagemUltimos"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="SugestoesButtonsUltimos"  Grid.Row="3" Grid.Column="0">
 
                     </StackLayout>
 
@@ -446,6 +458,24 @@
 
                 </Grid>
 
+            </ScrollView>
+            
+            <!-- resultados -->
+            <ScrollView BackgroundColor="White" Opacity="0.9" Padding="5" x:Name="PainelResultados" IsVisible="False">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackLayout x:Name="ResultadosImagens" Grid.Column="0"/>
+
+                    <StackLayout x:Name="ResultadosButtons" Grid.Column="0"/>
+
+                    <StackLayout x:Name="ResultadosInfo" Grid.Column="1" Grid.ColumnSpan="3"/>
+                </Grid>
             </ScrollView>
         </Grid>
 

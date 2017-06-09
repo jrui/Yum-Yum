@@ -17,6 +17,6 @@ C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.Registo.xaml.g.cs
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.MenuPrincipal.xaml.g.cs
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.csprojResolveAssemblyReference.cache
-C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.Restaurante.xaml.g.cs
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.Interface.Restaurantes.xaml.g.cs
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\obj\Debug\Aplicacao.dll.mdb
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao\bin\Debug\Aplicacao.dll.mdb

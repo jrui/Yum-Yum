@@ -17,20 +17,38 @@ namespace Aplicacao
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        public Login()
+        public Database db;
+        public Login(Database database)
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            db = database;
         }
 
         private async void IniciarButton_Clicked(object sender, EventArgs e)
         {
+            Boolean password = false;
             if (Utilizador.Text == null || Password.Text == null) await DisplayAlert("Aviso", "Preencha todos os Campos", "Ok");
             else
             {
-                if (Password.Text.Equals("Password") && Utilizador.Text.Equals("Username"))
-                    await Navigation.PushAsync(new MenuPrincipal());
-                else await DisplayAlert("Aviso", "Credenciais Erradas", "Ok");
+                foreach(Utilizador u in db.utilizador) {
+                    if (u.username.Equals(Utilizador.Text))
+                    {
+                        if (u.password.Equals(Password.Text))
+                        {
+                            db.curr_user = u;
+                            await Navigation.PushAsync(new MenuPrincipal(db));
+                            password = true;
+                            break;
+                        }
+                        else
+                        {
+                            await DisplayAlert("Aviso", "Password Errada", "Ok");
+                            password = true;
+                        }
+                    }
+                }
+                if(!password) await DisplayAlert("Aviso", "Username inválido", "Ok");
             }
         }
     }

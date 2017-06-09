@@ -38,6 +38,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Comentario.cs" />
+    <Compile Include="Data\CozinhaRestaurante.cs" />
+    <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\Filtro.cs" />
+    <Compile Include="Data\FiltroCozinha.cs" />
+    <Compile Include="Data\Prato.cs" />
+    <Compile Include="Data\Restaurante.cs" />
+    <Compile Include="Data\RestaurantesVisitados.cs" />
+    <Compile Include="Data\TipoCozinha.cs" />
+    <Compile Include="Data\Utilizador.cs" />
     <Compile Include="Interface\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
@@ -53,8 +63,8 @@
     <Compile Include="Interface\Registo.xaml.cs">
       <DependentUpon>Registo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interface\Restaurante.xaml.cs">
-      <DependentUpon>Restaurante.xaml</DependentUpon>
+    <Compile Include="Interface\Restaurantes.xaml.cs">
+      <DependentUpon>Restaurantes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,7 +117,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Interface\Restaurante.xaml">
+    <EmbeddedResource Include="Interface\Restaurantes.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
