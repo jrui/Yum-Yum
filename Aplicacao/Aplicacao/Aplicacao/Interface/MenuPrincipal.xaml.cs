@@ -72,15 +72,21 @@ namespace Aplicacao.Interface
             await Navigation.PushAsync(new Restaurante());
         }
 
-        private async void CozinhasToggle(object sender, EventArgs e)
+        private async void CozinhasToggleFiltros(object sender, EventArgs e)
         {
             Switch sw = sender as Switch;
             if (sw != null)
             {
-                if (sw.IsToggled == true)
-                {
-                    await Navigation.PushAsync(new MenuPrincipal());
-                }
+                if(sw.Id.Equals("EuropeuF")) await DisplayAlert("Aviso", "Europeu", "Ok");
+            }
+        }
+
+        private async void CozinhasTogglePerfil(object sender, EventArgs e)
+        {
+            Switch sw = sender as Switch;
+            if (sw != null)
+            {
+                if (sw.Id.Equals() await DisplayAlert("Aviso", "Europeu", "Ok");
             }
         }
 

@@ -82,5 +82,6 @@
                    HorizontalOptions="Center" 
                    VerticalOptions="Center"/>
         </ContentView>
+
     </Grid>
 </ContentPage>

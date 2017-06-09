@@ -200,33 +200,33 @@
                     <Grid Grid.Row="4" Grid.Column="1">
                         <ScrollView x:Uid="sv2" x:Name="EstadosF" Scrolled="ScrollChanged" HeightRequest="100">
                             <StackLayout>
-                                <Switch x:Name="EuropeuF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="PortuguesF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="ContemporaneoF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="PubF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="VeganF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="AsiaticoF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="MediterraneoF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SushiF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="AmericanaF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="Sem_GlutenF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="InternacionalF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SaudavelF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="GrillF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="ChurrascoF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="EspanholF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="VenezuelanaF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="JaponesaF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="MariscoF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SopasF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="ItalianaF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="MexicanaF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="PizzaF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="IndianaF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="TailandesF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="Fast_foodF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SteakhouseF" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="AlemaF" IsToggled="True" Toggled="CozinhasToggle"/>
+                                <Switch x:Uid="EuropeuF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="PortuguesF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="ContemporaneoF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="PubF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="VeganF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="AsiaticoF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="MediterraneoF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="SushiF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="AmericanaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="Sem_GlutenF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="InternacionalF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="SaudavelF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="GrillF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="ChurrascoF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="EspanholF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="VenezuelanaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="JaponesaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="MariscoF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="SopasF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="ItalianaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="MexicanaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="PizzaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="IndianaF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="TailandesF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="Fast_foodF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="SteakhouseF" Toggled="CozinhasToggleFiltros"/>
+                                <Switch x:Uid="AlemaF" Toggled="CozinhasToggleFiltros"/>
                             </StackLayout>
                         </ScrollView>
                     </Grid>
@@ -360,33 +360,33 @@
                     <Grid Grid.Row="5" Grid.Column="1">
                         <ScrollView x:Uid="sv2" x:Name="EstadosP" Scrolled="ScrollChanged">
                             <StackLayout>
-                                <Switch x:Name="EuropeuP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="PortuguesP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="ContemporaneoP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="PubP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="VeganP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="AsiaticoP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="MediterraneoP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SushiP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="AmericanaP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="Sem_GlutenP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="InternacionalP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SaudavelP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="GrillP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="ChurrascoP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="EspanholP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="VenezuelanaP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="JaponesaP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="MariscoP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SopasP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="ItalianaP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="MexicanaP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="PizzaP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="IndianaP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="TailandesP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="Fast_foodP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="SteakhouseP" Toggled="CozinhasToggle"/>
-                                <Switch x:Name="AlemaP" IsToggled="True" Toggled="CozinhasToggle"/>
+                                <Switch x:Uid="EuropeuP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="PortuguesP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="ContemporaneoP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="PubP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="VeganP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="AsiaticoP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="MediterraneoP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="SushiP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="AmericanaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="Sem_GlutenP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="InternacionalP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="SaudavelP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="GrillP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="ChurrascoP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="EspanholP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="VenezuelanaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="JaponesaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="MariscoP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="SopasP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="ItalianaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="MexicanaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="PizzaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="IndianaP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="TailandesP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="Fast_foodP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="SteakhouseP" Toggled="CozinhasTogglePerfil"/>
+                                <Switch x:Uid="AlemaP" Toggled="CozinhasTogglePerfil"/>
                             </StackLayout>
                         </ScrollView>
                     </Grid>

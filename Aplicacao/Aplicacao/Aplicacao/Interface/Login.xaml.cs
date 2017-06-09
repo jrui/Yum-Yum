@@ -25,7 +25,13 @@ namespace Aplicacao
 
         private async void IniciarButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MenuPrincipal());
+            if (Utilizador.Text == null || Password.Text == null) await DisplayAlert("Aviso", "Preencha todos os Campos", "Ok");
+            else
+            {
+                if (Password.Text.Equals("Password") && Utilizador.Text.Equals("Username"))
+                    await Navigation.PushAsync(new MenuPrincipal());
+                else await DisplayAlert("Aviso", "Credenciais Erradas", "Ok");
+            }
         }
     }
 }

@@ -116,7 +116,8 @@
                 Grid.Row="13"
                 Grid.ColumnSpan="9"
                 BackgroundColor="White"
-                Opacity="0.5"/>
+                Opacity="0.5"
+                Clicked="RegistarButton_Clicked"/>
 
         <ContentView Grid.ColumnSpan="9" Grid.Row="13" >
             <Label Text="Registar"
