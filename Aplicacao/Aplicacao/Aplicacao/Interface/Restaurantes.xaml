@@ -56,12 +56,13 @@
                     BackgroundColor="White" Opacity="0.4"
                     Clicked="ReviewsButton_Clicked"/>
 
-            <Label Grid.Row="7" Grid.Column="0"
+            <Label Grid.Row="7" Grid.Column="0" x:Name="ReviewsButton"
                    Text="Reviews(10)" Font="Bold, 20" TextColor="Black"
                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
 
             <Button x:Name="Comentario" Grid.Row="7" Grid.Column="1"
-                    BackgroundColor="White" Opacity="0.4"/>
+                    BackgroundColor="White" Opacity="0.4"
+                    Clicked="ComentarioButton_Clicked"/>
 
             <Label Grid.Row="7" Grid.Column="1"
                    Text="Deixar Comentário" Font="Bold, 20" TextColor="Black"
@@ -114,12 +115,27 @@
 
             </Grid>
 
-            <ScrollView Grid.Row="8" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="True"
-                        BackgroundColor="White" Opacity="1">
+            <ScrollView x:Name="ScrollReviews" Grid.Row="8" Grid.RowSpan="7" Grid.Column="0" Grid.ColumnSpan="2"
+                        BackgroundColor="White" Opacity="1" IsVisible="False">
                 
                 <StackLayout x:Name="StackReviews"/>
                 
             </ScrollView>
+
+            <ScrollView x:Name="ScrollComentario" Grid.Row="9" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="2"
+                        BackgroundColor="White" Opacity="1" IsVisible="False">
+
+                <Editor x:Name="StackComentario"/>
+
+            </ScrollView>
+
+            <Label x:Name="ComentarioTitulo" Grid.Row="7" Grid.Column="0"
+                   Text="Guardar Comentario" Font="Bold, 20" TextColor="Black"
+                   BackgroundColor="White" IsVisible="False"
+                   VerticalTextAlignment="Center"/>
+
+            <Button x:Name="GuardarComentario"  Grid.Row="7" Grid.Column="0"
+                    BackgroundColor="Transparent" IsVisible="False" Clicked="ComentarioRealizado"/>
 
         </Grid>
     </ScrollView>

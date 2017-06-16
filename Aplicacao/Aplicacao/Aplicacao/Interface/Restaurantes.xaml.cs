@@ -55,9 +55,41 @@ namespace Aplicacao.Interface
 
         private void ReviewsButton_Clicked(object sender, EventArgs e)
         {
-            if (StackReviews.IsVisible == true)
-                    StackReviews.IsVisible = false;
-            else StackReviews.IsVisible = true;
+            if (ScrollReviews.IsVisible == true)
+                    ScrollReviews.IsVisible = false;
+            else ScrollReviews.IsVisible = true;
+            ScrollComentario.IsVisible = false;
+        }
+
+        private void ComentarioButton_Clicked(object sender, EventArgs e)
+        {
+            if (ScrollComentario.IsVisible == true)
+            {
+                ComentarioTitulo.IsVisible = false;
+                ScrollComentario.IsVisible = false;
+                ReviewsButton.IsVisible = true;
+                GuardarComentario.IsVisible = false;
+            }
+            else
+            {
+                ComentarioTitulo.IsVisible = true;
+                ScrollComentario.IsVisible = true;
+                ReviewsButton.IsVisible = false;
+                GuardarComentario.IsVisible = true;
+            }
+            ScrollReviews.IsVisible = false;
+        }
+
+        private void ComentarioRealizado(object sender, EventArgs e)
+        {
+            String text = StackComentario.Text;
+            Comentario c = new Comentario(db.comentario.Count + 1, text, restaurante.id);
+            db.comentario.Add(c);
+            ComentarioTitulo.IsVisible = false;
+            ScrollComentario.IsVisible = false;
+            ReviewsButton.IsVisible = true;
+            GuardarComentario.IsVisible = false;
+            StackComentario.IsVisible = false;
         }
     }
 }
