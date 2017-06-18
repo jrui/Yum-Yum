@@ -35,7 +35,7 @@ namespace Aplicacao.Interface
                 {
                     Label nome = new Label { Text = p.nome };
                     PratosNome.Children.Add(nome);
-                    Label preco = new Label { Text = p.preco.ToString() };
+                    Label preco = new Label { Text = p.preco.ToString() + "€" };
                     PratosPreco.Children.Add(preco);
                 }
             }

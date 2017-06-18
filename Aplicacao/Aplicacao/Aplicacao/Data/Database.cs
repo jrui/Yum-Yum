@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Aplicacao
 {
@@ -26,6 +27,29 @@ namespace Aplicacao
             restaurantesVisitados = Init_RestaurantesVisitados();
             tipoCozinha = Init_TipoCozinha();
             utilizador = Init_Utilizador();
+
+            Atualiza_precoMed();
+        }
+
+        private void Atualiza_precoMed()
+        {
+            int[] counted = new int[restaurante.Count];
+            int i;
+            foreach (Prato p in prato)
+                for (i = 0; i < restaurante.Count; i++)
+                    if (restaurante.ElementAt(i).id == p.restaurante)
+                    {
+                        restaurante.ElementAt(i).preco_medio += p.preco;
+                        counted[i]++;
+                        break;
+                    }
+
+            i = 0;
+            foreach (Restaurante r in restaurante)
+            {
+                r.preco_medio = System.Math.Round(r.preco_medio / counted[i], 2);
+                i++;
+            }
         }
 
         private List<Utilizador> Init_Utilizador()
