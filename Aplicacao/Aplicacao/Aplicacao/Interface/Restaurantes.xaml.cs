@@ -91,5 +91,11 @@ namespace Aplicacao.Interface
             GuardarComentario.IsVisible = false;
             StackComentario.IsVisible = false;
         }
+
+        private void AddHistorico(object sender, EventArgs e)
+        {
+            RestaurantesVisitados res = new RestaurantesVisitados(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, db.curr_user.id_utilizador, restaurante.id);
+            db.restaurantesVisitados.Add(res);
+        }
     }
 }

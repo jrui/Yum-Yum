@@ -22,16 +22,17 @@ namespace Aplicacao.Interface
         List<int> ultimos = null;
         List<int> restaurantes = new List<int>();
 
+        //Carrega os componentes iniciais, dependendo se é convidado ou utilizador normal
         public MenuPrincipal(Database d)
         {
             db = d;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            AddRestauranteTrending();
+            //AddRestauranteTrending();
             if (db.curr_user != null)
             {
                 CarregaPerfil();
-                //CarregaUltimos();
+                GetUltimosRest_User();
             }
             carregar = false;
         }
@@ -39,12 +40,12 @@ namespace Aplicacao.Interface
 
 
 
-        /** Esta funcao nao recebe argumentos e devolve uma lista com o objecto restaurante
-         *  contendo os ultimos 5 restaurantes ordenados do mais recente para o mais antigo
-         *  que o utilizador autenticado já visitou, caso nao haja 5 restaurantes, devolve o
+        /** Esta funcao nao recebe argumentos e atualiza a view dos últimos restaurantes visitados com 
+         *  os ultimos 5 restaurantes ordenados do mais recente para o mais antigo
+         *  que o utilizador autenticado já visitou, caso nao haja 5 restaurantes, atualiza com o
          *  máximo possivel
          */
-        private List<Restaurante> GetUltimosRest_User()
+        private void GetUltimosRest_User()
         {
             List<Restaurante> ret = new List<Restaurante>();
 
@@ -87,40 +88,15 @@ namespace Aplicacao.Interface
                     if (restaurante.id == rvistemp.restaurante)
                         ret.Add(restaurante);
 
-            return ret;
+            foreach (Restaurante rest in ret)
+                AddRestauranteUltimos(rest);
+
         } 
 
 
-
-        //OBSOLETE
-        /*private void CarregaUltimos()
-        {
-            int size = 0, k = 0, j = 0;
-            Dictionary<int, int> aux = new Dictionary<int, int>();
-            DateTime now = DateTime.Now;
-            List<int> aux2 = new List<int>();
-            foreach (RestaurantesVisitados r in db.restaurantesVisitados)
-            {
-                if (now.Year * 365.25 + now.Month * 30 + now.Day <= 14 + r.data_dia + r.data_ano * 365.25 + r.data_mes * 31 && r.utilizador == db.curr_user.id_utilizador)
-                {
-                    if (aux.ContainsKey(r.restaurante))
-                    {
-                        aux[r.restaurante]++;
-                    }
-                    else
-                    {
-                        aux2.Add(r.restaurante);
-                        aux.Add(r.restaurante, 1);
-                    }
-                }
-            }
-            for (int a = 0; a < 5; a++)
-                AddRestauranteUltimos(aux2[a]);
-        }*/
-
+        //Inicia os switchs dependendo do seu perfil
         private void CarregaPerfil()
         {
-
             foreach (FiltroCozinha f in db.filtroCozinha)
             {
                 if (f.filtro == db.curr_user.filtro)
@@ -157,6 +133,9 @@ namespace Aplicacao.Interface
 
         }
 
+        /*Atualiza as views, colocando a view do filtro visivel e todas as outras
+        * não visiveis
+        */
         private void FiltrosButton_Clicked(object sender, EventArgs e)
         {
             PainelPerfil.IsVisible = false;
@@ -165,6 +144,9 @@ namespace Aplicacao.Interface
             PainelResultados.IsVisible = false;
         }
 
+        /*Atualiza as views, colocando a view do perfil visivel e todas as outras
+        * não visiveis
+        */
         private void PerfilButton_Clicked(object sender, EventArgs e)
         {
             PainelPerfil.IsVisible = true;
@@ -173,6 +155,9 @@ namespace Aplicacao.Interface
             PainelResultados.IsVisible = false;
         }
 
+        /*Atualiza as views, colocando a view das sugestões visivel e todas as outras
+        * não visiveis
+        */
         private void SugestoesButton_Clicked(object sender, EventArgs e)
         {
             PainelPerfil.IsVisible = false;
@@ -181,7 +166,10 @@ namespace Aplicacao.Interface
             PainelResultados.IsVisible = false;
         }
 
-        private async void ResultadosButton_Clicked(object sender, EventArgs e)
+        /*Atualiza as views, colocando a view dos resultados visivel e todas as outras
+        * não visiveis
+        */
+        private void ResultadosButton_Clicked(object sender, EventArgs e)
         {
             PainelPerfil.IsVisible = false;
             PainelFiltros.IsVisible = false;
@@ -189,6 +177,7 @@ namespace Aplicacao.Interface
             PainelResultados.IsVisible = true;
         }
 
+        // Guarda a distância maxima dos filtros adicionais entre o utilizador e o restaurante
         private async void DistanciaFButton_Clicked(object sender, EventArgs e)
         {
             if (DistanciaF.Text != null)
@@ -196,6 +185,7 @@ namespace Aplicacao.Interface
             else await DisplayAlert("Aviso", "Insira um número", "Ok");
         }
 
+        // Guarda a distância maxima do perfil entre o utilizador e o restaurante
         private async void DistanciaPButton_Clicked(object sender, EventArgs e)
         {
             if (DistanciaP.Text != null)
@@ -213,6 +203,7 @@ namespace Aplicacao.Interface
             else await DisplayAlert("Aviso", "Insira um número", "Ok");
         }
 
+        // Guarda o rating minimo dos restaurantes no perfil do utilizador
         private async void RatingPButton_Clicked(object sender, EventArgs e)
         {
             if (RatingP.SelectedItem != null)
@@ -230,6 +221,7 @@ namespace Aplicacao.Interface
             else await DisplayAlert("Aviso", "Escolha um rating", "Ok");
         }
 
+        // Guarda o rating minimo dos restaurantes nos filtros adicionais do utilizador
         private async void RatingFButton_Clicked(object sender, EventArgs e)
         {
             if (RatingF.SelectedItem != null)
@@ -237,6 +229,7 @@ namespace Aplicacao.Interface
             else await DisplayAlert("Aviso", "Escolha um rating", "Ok");
         }
 
+        // Guarda o preço médio máximo dos restaurantes no perfil do utilizador
         private async void PrecoPButton_Clicked(object sender, EventArgs e)
         {
             if (PrecoP.Text != null)
@@ -254,6 +247,7 @@ namespace Aplicacao.Interface
             else await DisplayAlert("Aviso", "Insira um número", "Ok");
         }
 
+        // Guarda o preço médio máximo dos restaurantes nos filtros adicionais do utilizador
         private async void PrecoFButton_Clicked(object sender, EventArgs e)
         {
             if (PrecoF.Text != null)
@@ -261,6 +255,7 @@ namespace Aplicacao.Interface
             else await DisplayAlert("Aviso", "Insira um número", "Ok");
         }
 
+        // Função auxiliar que remove um tipo de cozinha do perfil do utilizador
         private void RemoveCozinha(int id)
         {
             foreach (FiltroCozinha f in db.filtroCozinha)
@@ -277,12 +272,17 @@ namespace Aplicacao.Interface
             }
         }
 
+        // Função auxiliar que adiciona um tipo de cozinha ao perfil do utilizador
         private void AdicionaCozinha(int id)
         {
             FiltroCozinha f = new FiltroCozinha(id, db.curr_user.filtro);
             db.filtroCozinha.Add(f);
         }
 
+        /* Função que é executada aquando a modificação de um switch nos filtros
+         * é modificados os filtros adicionais do utilizador, adicionando ou removendo
+         * os tipos de cozinha dependendo do estado do switch depois da modificação
+        */
         private void CozinhasToggleFiltros(object sender, EventArgs e)
         {
             Switch sw = sender as Switch;
@@ -295,6 +295,10 @@ namespace Aplicacao.Interface
             }
         }
 
+        /* Função que é executada aquando a modificação de um switch nos filtros
+         * é modificados os filtros do perfil do utilizador, adicionando ou removendo
+         * os tipos de cozinha dependendo do estado do switch depois da modificação
+        */
         private void CozinhasTogglePerfil(object sender, EventArgs e)
         {
             if (!carregar)
@@ -310,6 +314,9 @@ namespace Aplicacao.Interface
             }
         }
 
+        /*Função que permite que o scroll dos tipos de cozinha e os respetivos switchs
+         * sofram as mesmas modificações
+        */
         private void ScrollChanged(object sender, ScrolledEventArgs e)
         {
             ScrollView sen = sender as ScrollView;
@@ -325,12 +332,10 @@ namespace Aplicacao.Interface
             }
         }
 
-        private void AddRestauranteTrending()
-        {
-
-
-        }
-
+        /* Função que adiciona os últimos restaurantes à view respetiva. Adiciona
+         * a imagem do restaurante, assim como o nome, informações e o butão que permite
+         * ir para o menu do restaurante
+         */
         private void AddRestauranteUltimos(Restaurante res)
         {
             Image image = new Image
@@ -346,7 +351,8 @@ namespace Aplicacao.Interface
                 WidthRequest = 70,
                 HeightRequest = 70,
             };
-
+            but.AutomationId = res.id.ToString();
+            but.Clicked += ShowRestaurante;
             SugestoesImagensUltimos.Children.Add(image);
             SugestoesButtonsUltimos.Children.Add(but);
             Label lab = new Label { Text = res.nome, HorizontalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold };
@@ -357,6 +363,12 @@ namespace Aplicacao.Interface
             SugestoesInfoUltimos.Children.Add(la);
         }
 
+        /* Função que irá preencher a view respetiva aos resultados da pesquisa
+         * com os restaurantes que obedecem aos filtros do perfil, assim como aos filtros
+         * adicionais, preenchendo com a imagem do respetivo restaurante, assim como
+         * as informações sobre esse restaurante, e o butão que permite ir para o menu
+         * do restaurante
+         */
         private void PesquisarButton_Clicked(object sender, EventArgs e)
         {
             restaurantes = new List<int>();
@@ -378,26 +390,37 @@ namespace Aplicacao.Interface
                 }
             }
 
-            /*
-             * FALTA DAR RESET AOS RESTAURANTES JA PRESENTES NA LISTAGEM
-             * TANTO NAS SUGESTOES POR TRENDING COMO POR ULTIMOS
-             */
+            //Reset da view
+            for(i= ResultadosImagens.Children.Count -1; i >=0  ; i--)
+            {
+                ResultadosImagens.Children.RemoveAt(i);
+                ResultadosButtons.Children.RemoveAt(i);
+            }
+
+            for(i = ResultadosInfo.Children.Count -1; i >= 0; i--)
+            {
+                ResultadosInfo.Children.RemoveAt(i);
+            }
+            //fim do reset
+
             for (i = 0; i < restaurantes.Count; i++)
             {
                 foreach (CozinhaRestaurante c in db.cozinhaRestaurante)
                 {
                     if (c.restaurante == restaurantes[i] && perfil.Contains(c.cozinha))
                     {
-                        AddResultados(restaurantes[i], i);
+                        AddResultados(restaurantes[i]);
                         break;
                     }
                 }
             }
-            foreach(Restaurante rest in GetUltimosRest_User())
-                AddRestauranteUltimos(rest);
         }
 
-        private void AddResultados(int id, int indice)
+        /* função auxiliar que preenche a view com os restaurantes dos resultados da pesquisa
+        * com a imagem, informações relevantes sobre o restaurante e o butão que permite ir para 
+        * o menu do restaurante
+        */
+        private void AddResultados(int id)
         {
             Restaurante res = null;
             foreach (Restaurante r in db.restaurante)
@@ -423,7 +446,7 @@ namespace Aplicacao.Interface
                 WidthRequest = 70,
                 HeightRequest = 70,
             };
-            but.AutomationId = indice.ToString();
+            but.AutomationId = id.ToString();
             but.Clicked += ShowRestaurante;
             ResultadosImagens.Children.Add(image);
             ResultadosButtons.Children.Add(but);
@@ -435,15 +458,15 @@ namespace Aplicacao.Interface
             ResultadosInfo.Children.Add(la);
         }
 
+        // Função que abre o menu do restaurante, dando o restaurante como argumento
         private async void ShowRestaurante(object sender, EventArgs e)
         {
             int indice;
             Button but = sender as Button;
             Int32.TryParse(but.AutomationId, out indice);
-            int id_res = restaurantes[indice];
             foreach(Restaurante r in db.restaurante)
             {
-                if (r.id == id_res)
+                if (r.id == indice)
                 {
                     await Navigation.PushAsync(new Restaurantes(db, r));
                     break;

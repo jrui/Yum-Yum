@@ -89,7 +89,8 @@
                    HorizontalOptions = "Start" VerticalOptions = "FillAndExpand"/>
 
             <Button Grid.Row="11" Grid.Column="1"
-                    BackgroundColor="Transparent"/>
+                    BackgroundColor="Transparent"
+                    Clicked="AddHistorico"/>
 
             <Label Grid.Row="10" Grid.Column="1"
                    Text="Adicionar ao Histórico" HorizontalTextAlignment="End"

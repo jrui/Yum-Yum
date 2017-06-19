@@ -81,7 +81,6 @@ C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\r
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\history2.png
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\map2.png
 C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\res\drawable\phone2.png
-C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\Aplicacao.Android.dll.mdb
 C:\Users\joaor\Desktop\Yum-Yum-master\Aplicacao\Aplicacao\Aplicacao.Android\bin\Debug\Aplicacao.Android.dll
 C:\Users\joaor\Desktop\Yum-Yum-master\Aplicacao\Aplicacao\Aplicacao.Android\bin\Debug\Aplicacao.Android.pdb
 C:\Users\joaor\Desktop\Yum-Yum-master\Aplicacao\Aplicacao\Aplicacao.Android\bin\Debug\Aplicacao.Android.apk
@@ -165,3 +164,5 @@ C:\Users\joaor\Desktop\Yum-Yum-master\Aplicacao\Aplicacao\Aplicacao.Android\obj\
 C:\Users\joaor\Desktop\Yum-Yum-master\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\joaor\Desktop\Yum-Yum-master\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\joaor\Desktop\Yum-Yum-master\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\obj\Debug\Aplicacao.Android.dll.mdb
+C:\Users\Paulo\Desktop\Yum-Yum\Aplicacao\Aplicacao\Aplicacao.Android\bin\Debug\Aplicacao.Android.dll.mdb

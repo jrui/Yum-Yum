@@ -111,7 +111,6 @@ namespace Aplicacao
             ret.Add(new RestaurantesVisitados(12, 4, 2017, 2, 43));
             ret.Add(new RestaurantesVisitados(15, 5, 2017, 2, 54));
             ret.Add(new RestaurantesVisitados(16, 6, 2017, 3, 78));
-            ret.Add(new RestaurantesVisitados(17, 4, 2017, 3, 23));
             ret.Add(new RestaurantesVisitados(11, 3, 2017, 3, 45));
             ret.Add(new RestaurantesVisitados(14, 3, 2017, 3, 54));
             ret.Add(new RestaurantesVisitados(15, 4, 2017, 3, 76));

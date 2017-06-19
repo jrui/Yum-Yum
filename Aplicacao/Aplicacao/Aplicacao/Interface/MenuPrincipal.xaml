@@ -422,39 +422,29 @@
 
                     <Label Text="Últimos" Font="Bold, 30" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Center"/>
 
-                    <StackLayout x:Name="SugestoesImagensTrending"  Grid.Row="1" Grid.Column="0">
+                    <StackLayout x:Name="SugestoesImagensTrending"  Grid.Row="1" Grid.Column="0"/>
 
-                    </StackLayout>
 
-                    <StackLayout x:Name="SugestoesButtonsTrending"  Grid.Row="1" Grid.Column="0">
 
-                    </StackLayout>
+                    <StackLayout x:Name="SugestoesButtonsTrending"  Grid.Row="1" Grid.Column="0"/>
 
-                    <StackLayout x:Name="SugestoesInfoTrending" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
 
-                        <Label Text="Taberna Belga" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
-                        <Label Text="Dist ee Rating" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
-                        <Label Text="Prec" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    <StackLayout x:Name="SugestoesInfoTrending" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
 
-                    </StackLayout>
 
-                    <StackLayout x:Name="SugestoesImagensUltimos"  Grid.Row="3" Grid.Column="0">
 
-                    </StackLayout>
+                    <StackLayout x:Name="SugestoesImagensUltimos"  Grid.Row="3" Grid.Column="0"/>
 
-                    <StackLayout x:Name="SugestoesButtonsUltimos"  Grid.Row="3" Grid.Column="0">
 
-                    </StackLayout>
 
-                    <StackLayout x:Name="SugestoesInfoUltimos" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3">
+                    <StackLayout x:Name="SugestoesButtonsUltimos"  Grid.Row="3" Grid.Column="0"/>
 
-                        <Label Text="Taberna Belga" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
-                        <Label Text="Dist ee Rating" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
-                        <Label Text="Prec" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
 
-                    </StackLayout>
+                    <StackLayout x:Name="SugestoesInfoUltimos" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+
 
                 </Grid>
 
