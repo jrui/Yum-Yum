@@ -49,8 +49,9 @@ namespace Aplicacao.Interface
         {
             List<Restaurante> ret = new List<Restaurante>();
 
-            //Tendo em conta que existe um objecto do tipo:    Database db
-            // existente na classe em que esta função está implementada
+            /*Tendo em conta que existe um objecto do tipo:    Database db
+             * existente na classe em que esta função está implementada
+             */
             List<Restaurante> aux = new List<Restaurante>(db.restaurante);
             List<RestaurantesVisitados> restVis = new List<RestaurantesVisitados>();
 
@@ -70,7 +71,7 @@ namespace Aplicacao.Interface
                 foreach (RestaurantesVisitados r in restVis)
                     if(r.data_ano >= last_year)
                         if(r.data_mes >= last_month)
-                            if(r.data_mes >= last_day)
+                            if(r.data_dia >= last_day)
                             {
                                 restSelected = r;
                                 last_year = r.data_ano;
@@ -369,15 +370,26 @@ namespace Aplicacao.Interface
          * as informações sobre esse restaurante, e o butão que permite ir para o menu
          * do restaurante
          */
-        private void PesquisarButton_Clicked(object sender, EventArgs e)
+        private async void PesquisarButton_Clicked(object sender, EventArgs e)
         {
             restaurantes = new List<int>();
             List<int> perfil = new List<int>();
+            Filtro filtro = null;
             foreach(FiltroCozinha f in db.filtroCozinha)
             {
                 if (f.filtro == db.curr_user.filtro)
                     perfil.Add(f.cozinha);
             }
+
+            foreach (Filtro f in db.filtros)
+            {
+                if (f.id_filtro == db.curr_user.filtro)
+                {
+                    filtro = f;
+                    break;
+                }
+            }
+
             SearchBar search = sender as SearchBar;
             int i = 0;
             String pesquisa = search.Text.ToUpper();
@@ -386,7 +398,9 @@ namespace Aplicacao.Interface
                 if (p.nome.Contains(pesquisa))
                 {
                     if (!restaurantes.Contains(p.restaurante))
+                    {
                         restaurantes.Add(p.restaurante);
+                    }
                 }
             }
 
@@ -403,15 +417,26 @@ namespace Aplicacao.Interface
             }
             //fim do reset
 
+            bool adicionou = false;
+            // verificar se os retaurantes estão dentro dos requesitos
             for (i = 0; i < restaurantes.Count; i++)
             {
+                adicionou = false;
                 foreach (CozinhaRestaurante c in db.cozinhaRestaurante)
                 {
                     if (c.restaurante == restaurantes[i] && perfil.Contains(c.cozinha))
                     {
-                        AddResultados(restaurantes[i]);
-                        break;
+                        foreach (Restaurante r in db.restaurante)
+                        {
+                            if (r.id == restaurantes[i] && ((( r.preco_medio <= filtro.preco_max || filtro.preco_max == 0 ) && ( r.rating >= filtro.rating_min || filtro.rating_min == 0)) || db.curr_user == null)) 
+                            { 
+                                AddResultados(restaurantes[i]);
+                                adicionou = true;
+                                break;
+                            }
+                        }
                     }
+                    if (adicionou == true) break;
                 }
             }
         }
