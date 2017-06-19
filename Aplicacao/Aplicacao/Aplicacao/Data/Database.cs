@@ -1550,6 +1550,11 @@ namespace Aplicacao
             ret.Add(new Prato(1311, 3.56, "CHERNE GRELHADO", 101));
             ret.Add(new Prato(1312, 5.81, "SERRA CURADO", 101));
             ret.Add(new Prato(1313, 3.46, "BACALHAU À ESCONDIDINHO", 101));
+            ret.Add(new Prato(1314, 10.46, "FRANCESINHA", 84));
+            ret.Add(new Prato(1315, 11.68, "FRANCESINHA", 85));
+            ret.Add(new Prato(1316, 8.46, "FRANCESINHA", 86));
+            ret.Add(new Prato(1317, 9.86, "FRANCESINHA", 87));
+
             return ret;
         }
 

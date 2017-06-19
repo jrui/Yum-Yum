@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Diagnostics;
 
 namespace Aplicacao.Interface
 {
@@ -36,6 +32,72 @@ namespace Aplicacao.Interface
             carregar = false;
         }
 
+
+        /** Esta funcao nao recebe argumentos e retorna uma lista contendo os restaurantes mais
+         *  visitados na ultima semana, por todos os utilizadores.
+         */
+        private List<Restaurante> GetUltimos_Trending()
+        {
+            List<Restaurante> ret = new List<Restaurante>();
+
+            List<RestaurantesVisitados> restVis = new List<RestaurantesVisitados>(db.restaurantesVisitados);
+            List<RestaurantesVisitados> temp = new List<RestaurantesVisitados>();
+            DateTime data_now = new DateTime();
+
+            // seleciona ultima semana
+            foreach (RestaurantesVisitados r in restVis)
+            {
+                DateTime data_vis = new DateTime(r.data_ano, r.data_mes, r.data_dia);
+                data_vis.AddDays(7);
+                if (data_vis >= data_now) temp.Add(r);
+            }
+
+            //int id  ->  int visitas
+            // conta n visitas individuais
+            Dictionary<int, int> visits = new Dictionary<int, int>();
+            foreach (RestaurantesVisitados r in temp)
+            {
+                int n_visitas = 0;
+                if (visits.TryGetValue(r.restaurante, out n_visitas))
+                {
+                    visits[r.restaurante] = n_visitas++;
+                }
+                else visits.Add(r.restaurante, 1);
+            }
+
+            //seleciona 5 melhores 
+            List<int> best_ids = new List<int>();
+            int n_max, index_best;
+            bool more = visits.Count > 0 ? true : false;
+            for (int i = 0; i < 5 && more; i++) {
+                n_max = 0;
+                index_best = -1;
+
+                foreach (int j in visits.Keys)
+                    if (visits[j] > n_max)
+                    {
+                        n_max = visits[j];
+                        index_best = j;
+                    }
+
+                best_ids.Add(index_best);
+                best_ids.Remove(index_best);
+                more = best_ids.Count > 0 ? true : false;
+            }
+
+            // faz fetch dos restaurantes associados
+            foreach(int i in best_ids)
+            {
+                foreach(Restaurante r in db.restaurante)
+                    if (i == r.id)
+                    {
+                        ret.Add(r);
+                        break;
+                    }
+            }
+
+            return ret;
+        }
 
 
 
