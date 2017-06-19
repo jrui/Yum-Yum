@@ -1556,11 +1556,11 @@ namespace Aplicacao
         private List<Filtro> Init_Filtro()
         {
             List<Filtro> ret = new List<Filtro>();
-            ret.Add(new Filtro(1, 15, 10, 1));
-            ret.Add(new Filtro(2, 5, 8, 2));
-            ret.Add(new Filtro(3, 9, 7, 3));
-            ret.Add(new Filtro(4, 8, 15, 2));
-            ret.Add(new Filtro(5, 20, 20, 4));
+            ret.Add(new Filtro(1, 0, 10, 0));
+            ret.Add(new Filtro(2, 0, 8, 0));
+            ret.Add(new Filtro(3, 0, 7, 0));
+            ret.Add(new Filtro(4, 0, 15, 0));
+            ret.Add(new Filtro(5, 0, 20, 0));
             return ret;
         }
 

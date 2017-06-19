@@ -17,6 +17,7 @@ namespace Aplicacao.Interface
 
         public Restaurantes(Database d, Restaurante r)
         {
+            int reviewsCounter = 0;
             db = d;
             restaurante = r;
             NavigationPage.SetHasNavigationBar(this, false);
@@ -44,6 +45,7 @@ namespace Aplicacao.Interface
             {
                 if (c.restaurante == r.id)
                 {
+                    reviewsCounter++;
                     Label coment = new Label { Text = c.descricao , TextColor = Color.Black};
                     StackReviews.Children.Add(coment);
 
@@ -51,6 +53,8 @@ namespace Aplicacao.Interface
                     StackReviews.Children.Add(comentSep);
                 }
             }
+
+            ReviewsButton.Text = "Reviews (" + reviewsCounter.ToString() + ")";
         }
 
         private void ReviewsButton_Clicked(object sender, EventArgs e)

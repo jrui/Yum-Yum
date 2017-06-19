@@ -16,10 +16,9 @@ namespace Aplicacao.Interface
         Database db;
         Boolean carregar = true;
         List<int> filtros = new List<int>();
-        double preco_max = -1;
-        double distancia_max = -1;
-        double rating_min = -1;
-        List<int> ultimos = null;
+        double preco_max = 0;
+        double distancia_max = 0;
+        double rating_min = 0;
         List<int> restaurantes = new List<int>();
 
         //Carrega os componentes iniciais, dependendo se é convidado ou utilizador normal
@@ -47,6 +46,7 @@ namespace Aplicacao.Interface
          */
         private void GetUltimosRest_User()
         {
+            int i = 0;
             List<Restaurante> ret = new List<Restaurante>();
 
             /*Tendo em conta que existe um objecto do tipo:    Database db
@@ -64,7 +64,7 @@ namespace Aplicacao.Interface
             int last_year, last_month, last_day;
             bool more = restVis.Count > 0 ? true : false;
 
-            for (int i = 0; i < 5 && more; i++)
+            for (i = 0; i < 5 && more; i++)
             {
                 last_year = last_month = last_day = -1;
 
@@ -89,15 +89,93 @@ namespace Aplicacao.Interface
                     if (restaurante.id == rvistemp.restaurante)
                         ret.Add(restaurante);
 
+            //Reset da view
+            for (i = SugestoesImagensUltimos.Children.Count - 1; i >= 0; i--)
+            {
+                SugestoesImagensUltimos.Children.RemoveAt(i);
+                SugestoesButtonsUltimos.Children.RemoveAt(i);
+            }
+
+            for (i = SugestoesInfoUltimos.Children.Count - 1; i >= 0; i--)
+            {
+                SugestoesInfoUltimos.Children.RemoveAt(i);
+            }
+            //fim do reset
+
             foreach (Restaurante rest in ret)
                 AddRestauranteUltimos(rest);
 
-        } 
+        }
+
+        private List<Restaurante> GetHistoricoRest_User()
+        {
+            int i = 0;
+            List<Restaurante> ret = new List<Restaurante>();
+
+            /*Tendo em conta que existe um objecto do tipo:    Database db
+             * existente na classe em que esta função está implementada
+             */
+            List<Restaurante> aux = new List<Restaurante>(db.restaurante);
+            List<RestaurantesVisitados> restVis = new List<RestaurantesVisitados>();
+
+            //Reset da view
+            for (i = HistoricoImagens.Children.Count - 1; i >= 0; i--)
+            {
+                HistoricoImagens.Children.RemoveAt(i);
+                HistoricoButtons.Children.RemoveAt(i);
+            }
+
+            for (i = HistoricoInfo.Children.Count - 1; i >= 0; i--)
+            {
+                HistoricoInfo.Children.RemoveAt(i);
+            }
+            //fim do reset
+
+            foreach (RestaurantesVisitados r in db.restaurantesVisitados)
+                if (r.utilizador == db.curr_user.id_utilizador)
+                    restVis.Add(r);
+
+            RestaurantesVisitados restSelected = null;
+            List<RestaurantesVisitados> lastRestVisit = new List<RestaurantesVisitados>();
+            int last_year, last_month, last_day;
+            bool more = restVis.Count > 0 ? true : false;
+
+            int n = restVis.Count();
+
+            for (i = 0; i < n; i++)
+            {
+                last_year = last_month = last_day = -1;
+
+                foreach (RestaurantesVisitados r in restVis)
+                    if (r.data_ano >= last_year)
+                        if (r.data_mes >= last_month)
+                            if (r.data_dia >= last_day)
+                            {
+                                restSelected = r;
+                                last_year = r.data_ano;
+                                last_month = r.data_mes;
+                                last_day = r.data_dia;
+                            }
+
+                lastRestVisit.Add(restSelected);
+                restVis.Remove(restSelected);
+                more = restVis.Count > 0 ? true : false;
+            }
+
+            foreach (RestaurantesVisitados rvistemp in lastRestVisit)
+                foreach (Restaurante restaurante in db.restaurante)
+                    if (restaurante.id == rvistemp.restaurante)
+                        ret.Add(restaurante);
+
+            return ret;
+
+        }
 
 
         //Inicia os switchs dependendo do seu perfil
         private void CarregaPerfil()
         {
+            List<Restaurante> historico = GetHistoricoRest_User();
             foreach (FiltroCozinha f in db.filtroCozinha)
             {
                 if (f.filtro == db.curr_user.filtro)
@@ -131,7 +209,36 @@ namespace Aplicacao.Interface
                     else if (f.cozinha == 27) Switch27.IsToggled = true;
                 }
             }
+            foreach (Restaurante r in historico)
+                AddHistorico(r);
 
+        }
+
+        private void AddHistorico(Restaurante res)
+        {
+            Image image = new Image
+            {
+                Aspect = Aspect.AspectFill,
+                WidthRequest = 70,
+                HeightRequest = 70
+            };
+            image.Source = ImageSource.FromUri(new Uri(res.imagem));
+            Button but = new Button
+            {
+                BackgroundColor = Color.Transparent,
+                WidthRequest = 70,
+                HeightRequest = 70,
+            };
+            but.AutomationId = res.id.ToString();
+            but.Clicked += ShowRestaurante;
+            HistoricoImagens.Children.Add(image);
+            HistoricoButtons.Children.Add(but);
+            Label lab = new Label { Text = res.nome, HorizontalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold };
+            HistoricoInfo.Children.Add(lab);
+            Label labe = new Label { Text = "Preço Médio: " + res.preco_medio + "€" };
+            HistoricoInfo.Children.Add(labe);
+            Label la = new Label { Text = "Distancia: N/A     " + "Rating: " + res.rating };
+            HistoricoInfo.Children.Add(la);
         }
 
         /*Atualiza as views, colocando a view do filtro visivel e todas as outras
@@ -146,7 +253,7 @@ namespace Aplicacao.Interface
         }
 
         /*Atualiza as views, colocando a view do perfil visivel e todas as outras
-        * não visiveis
+        * não visiveis, e carrega o perfil, atualizando o histórico
         */
         private void PerfilButton_Clicked(object sender, EventArgs e)
         {
@@ -154,6 +261,8 @@ namespace Aplicacao.Interface
             PainelFiltros.IsVisible = false;
             PainelSugestoes.IsVisible = false;
             PainelResultados.IsVisible = false;
+            if(db.curr_user != null)
+            CarregaPerfil();
         }
 
         /*Atualiza as views, colocando a view das sugestões visivel e todas as outras
@@ -165,10 +274,11 @@ namespace Aplicacao.Interface
             PainelFiltros.IsVisible = false;
             PainelSugestoes.IsVisible = true;
             PainelResultados.IsVisible = false;
+            GetUltimosRest_User();
         }
 
         /*Atualiza as views, colocando a view dos resultados visivel e todas as outras
-        * não visiveis
+        * não visiveis, e atualiza os últimos restaurantes visitados
         */
         private void ResultadosButton_Clicked(object sender, EventArgs e)
         {
@@ -424,11 +534,11 @@ namespace Aplicacao.Interface
                 adicionou = false;
                 foreach (CozinhaRestaurante c in db.cozinhaRestaurante)
                 {
-                    if (c.restaurante == restaurantes[i] && perfil.Contains(c.cozinha))
+                    if (c.restaurante == restaurantes[i] && perfil.Contains(c.cozinha) && !filtros.Contains(c.cozinha))
                     {
                         foreach (Restaurante r in db.restaurante)
                         {
-                            if (r.id == restaurantes[i] && ((( r.preco_medio <= filtro.preco_max || filtro.preco_max == 0 ) && ( r.rating >= filtro.rating_min || filtro.rating_min == 0)) || db.curr_user == null)) 
+                            if (r.id == restaurantes[i] && ((( (r.preco_medio <= filtro.preco_max || filtro.preco_max == 0) && (r.preco_medio <= preco_max || preco_max == 0) ) && ( (r.rating >= filtro.rating_min || filtro.rating_min == 0) && (r.rating >= rating_min || rating_min == 0)) ) || db.curr_user == null)) 
                             { 
                                 AddResultados(restaurantes[i]);
                                 adicionou = true;

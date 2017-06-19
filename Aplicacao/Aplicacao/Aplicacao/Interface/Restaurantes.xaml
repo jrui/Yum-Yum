@@ -57,7 +57,7 @@
                     Clicked="ReviewsButton_Clicked"/>
 
             <Label Grid.Row="7" Grid.Column="0" x:Name="ReviewsButton"
-                   Text="Reviews(10)" Font="Bold, 20" TextColor="Black"
+                   Text="Reviews" Font="Bold, 20" TextColor="Black"
                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
 
             <Button x:Name="Comentario" Grid.Row="7" Grid.Column="1"

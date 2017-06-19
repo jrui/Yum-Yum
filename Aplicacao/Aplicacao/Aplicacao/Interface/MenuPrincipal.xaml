@@ -243,12 +243,13 @@
             <ScrollView BackgroundColor="White" Opacity="0.9" Padding="5" x:Name="PainelPerfil" IsVisible="False">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="900" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="17*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="7*"/>
@@ -396,6 +397,32 @@
                                 <Switch AutomationId="26" x:Name="Switch26" Toggled="CozinhasTogglePerfil"/>
                                 <Switch AutomationId="27" x:Name="Switch27" Toggled="CozinhasTogglePerfil"/>
                             </StackLayout>
+                        </ScrollView>
+                    </Grid>
+
+                    <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3">
+                        <ScrollView>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="5*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Histórico" Font="Bold, 30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Center"/>
+
+                                <StackLayout x:Name="HistoricoImagens"  Grid.Row="1" Grid.Column="0"/>
+
+                                <StackLayout x:Name="HistoricoButtons"  Grid.Row="1" Grid.Column="0"/>
+
+                                <StackLayout x:Name="HistoricoInfo" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                            </Grid>
                         </ScrollView>
                     </Grid>
                 </Grid>
