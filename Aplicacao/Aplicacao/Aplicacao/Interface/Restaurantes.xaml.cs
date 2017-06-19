@@ -25,7 +25,7 @@ namespace Aplicacao.Interface
 
             Titulo.Text = restaurante.nome;
             Rating.Text = restaurante.rating.ToString();
-            Preco.Text = restaurante.preco_medio.ToString();
+            Preco.Text = restaurante.preco_medio.ToString() + " €";
             Morada.Text = restaurante.morada;
             Distancia.Text = "--";
             Foto.Source = ImageSource.FromUri(new Uri(restaurante.imagem));
