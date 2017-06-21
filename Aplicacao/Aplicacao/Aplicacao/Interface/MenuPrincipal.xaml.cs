@@ -30,7 +30,7 @@ namespace Aplicacao.Interface
             }
             if (db.curr_user == null)
             {
-                DisplayAlert("Ok", "ok", "ok");
+                DisplayAlert("Login", "Iniciada sessão convidado.", "OK");
                 PainelPerfil.IsVisible = false;
             }
             GetUltimos_Trending();
@@ -44,19 +44,14 @@ namespace Aplicacao.Interface
         private void GetUltimos_Trending()
         {
             List<Restaurante> ret = new List<Restaurante>();
-
-            List<RestaurantesVisitados> restVis = new List<RestaurantesVisitados>(db.restaurantesVisitados);
             List<RestaurantesVisitados> temp = new List<RestaurantesVisitados>();
             DateTime data_now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
             // seleciona ultima semana
-            foreach (RestaurantesVisitados r in restVis)
+            foreach (RestaurantesVisitados r in db.restaurantesVisitados)
             {
                 DateTime data_vis = new DateTime(r.data_ano, r.data_mes, r.data_dia);
-                if (data_vis.AddDays(7) >= data_now)
-                {
-                    temp.Add(r);
-                }
+                if (data_vis.AddDays(7) >= data_now) temp.Add(r);
             }
 
             //int id  ->  int visitas
@@ -65,10 +60,7 @@ namespace Aplicacao.Interface
             foreach (RestaurantesVisitados r in temp)
             {
                 int n_visitas = 0;
-                if (visits.TryGetValue(r.restaurante, out n_visitas))
-                {
-                    visits[r.restaurante] = n_visitas++;
-                }
+                if (visits.TryGetValue(r.restaurante, out n_visitas)) visits[r.restaurante] = n_visitas++;
                 else visits.Add(r.restaurante, 1);
             }
 
@@ -81,32 +73,43 @@ namespace Aplicacao.Interface
                 index_best = -1;
 
                 foreach (int j in visits.Keys)
+                {
                     if (visits[j] > n_max)
                     {
                         n_max = visits[j];
                         index_best = j;
                     }
+                }
 
                 best_ids.Add(index_best);
-                best_ids.Remove(index_best);
+                visits.Remove(index_best);
                 more = best_ids.Count > 0 ? true : false;
             }
 
+
             // faz fetch dos restaurantes associados
-            foreach(int i in best_ids)
-            {
+            foreach (int i in best_ids)
                 foreach(Restaurante r in db.restaurante)
                     if (i == r.id)
                     {
-                        DisplayAlert("ok", r.id.ToString(), "ok");
                         ret.Add(r);
                         break;
                     }
-            }
-            foreach(Restaurante r in ret)
+
+            //Reset da view
+            int k = 0;
+            for (k = SugestoesImagensTrending.Children.Count - 1; k >= 0; k--)
             {
-                AddTrending(r);
+                SugestoesImagensTrending.Children.RemoveAt(k);
+                SugestoesButtonsTrending.Children.RemoveAt(k);
             }
+
+            for (k = SugestoesInfoTrending.Children.Count - 1; k >= 0; k--)
+            {
+                SugestoesInfoTrending.Children.RemoveAt(k);
+            }
+
+            foreach (Restaurante r in ret) AddTrending(r);
         }
 
         private void AddTrending(Restaurante res)
