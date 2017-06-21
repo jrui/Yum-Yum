@@ -14,6 +14,7 @@ namespace Aplicacao.Interface
     {
         Database db;
         Restaurante restaurante;
+        List<RestaurantesVisitados> list = new List<RestaurantesVisitados>();
 
         public Restaurantes(Database d, Restaurante r)
         {
@@ -107,20 +108,18 @@ namespace Aplicacao.Interface
             if (db.curr_user != null)
             {
                 Boolean r1 = false, r2 = false;
-                List<RestaurantesVisitados> list = new List<RestaurantesVisitados>(2);
                 foreach (RestaurantesVisitados r in db.restaurantesVisitados)
                     if (r.utilizador == db.curr_user.id_utilizador)
                         if (r.data_ano == DateTime.Now.Year && r.data_dia == DateTime.Now.Day && r.data_mes == DateTime.Now.Month)
                             list.Add(r);
-                if(list.Count >= 2)
+                if (list.Count >= 2)
                 {
-                    DisplayAlert("Ok", list[0].restaurante.ToString() + " " + list[1].restaurante.ToString(), "ok");
                     SubstituirHistorico.IsVisible = true;
-                    foreach(Restaurante r in db.restaurante)
+                    foreach (Restaurante r in db.restaurante)
                     {
                         if (r1 && r2)
                             break;
-                        if(r.id == list[0].restaurante)
+                        if (r.id == list[0].restaurante)
                         {
                             Restaurante1.Text = r.nome;
                             r1 = true;
@@ -133,9 +132,51 @@ namespace Aplicacao.Interface
                         }
                     }
                 }
-                RestaurantesVisitados res = new RestaurantesVisitados(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, db.curr_user.id_utilizador, restaurante.id);
-                db.restaurantesVisitados.Add(res);
+                else
+                {
+                    RestaurantesVisitados res = new RestaurantesVisitados(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, db.curr_user.id_utilizador, restaurante.id);
+                    db.restaurantesVisitados.Add(res);
+                }
             }
+        }
+
+        private void ButtonRestaurante1_Clicked(object sender, EventArgs e)
+        {
+            foreach(RestaurantesVisitados r in db.restaurantesVisitados)
+            {
+                if (r.utilizador == db.curr_user.id_utilizador)
+                    if (r.data_ano == DateTime.Now.Year && r.data_dia == DateTime.Now.Day && r.data_mes == DateTime.Now.Month)
+                        if (r.restaurante == list[0].restaurante)
+                        {
+                            db.restaurantesVisitados.Remove(r);
+                            break;
+                        }
+            }
+            RestaurantesVisitados res = new RestaurantesVisitados(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, db.curr_user.id_utilizador, restaurante.id);
+            db.restaurantesVisitados.Add(res);
+            SubstituirHistorico.IsVisible = false;
+        }
+
+        private void ButtonRestaurante2_Clicked(object sender, EventArgs e)
+        {
+            foreach (RestaurantesVisitados r in db.restaurantesVisitados)
+            {
+                if (r.utilizador == db.curr_user.id_utilizador)
+                    if (r.data_ano == DateTime.Now.Year && r.data_dia == DateTime.Now.Day && r.data_mes == DateTime.Now.Month)
+                        if (r.restaurante == list[1].restaurante)
+                        {
+                            db.restaurantesVisitados.Remove(r);
+                            break;
+                        }
+            }
+            RestaurantesVisitados res = new RestaurantesVisitados(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, db.curr_user.id_utilizador, restaurante.id);
+            db.restaurantesVisitados.Add(res);
+            SubstituirHistorico.IsVisible = false;
+        }
+
+        private void CancelarButton_Clicked(object sender, EventArgs e)
+        {
+            SubstituirHistorico.IsVisible = false;
         }
     }
 }
