@@ -23,12 +23,17 @@ namespace Aplicacao.Interface
             db = d;
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            //AddRestauranteTrending();
             if (db.curr_user != null)
             {
                 CarregaPerfil();
                 GetUltimosRest_User();
             }
+            if (db.curr_user == null)
+            {
+                DisplayAlert("Ok", "ok", "ok");
+                PainelPerfil.IsVisible = false;
+            }
+            GetUltimos_Trending();
             carregar = false;
         }
 
@@ -36,20 +41,22 @@ namespace Aplicacao.Interface
         /** Esta funcao nao recebe argumentos e retorna uma lista contendo os restaurantes mais
          *  visitados na ultima semana, por todos os utilizadores.
          */
-        private List<Restaurante> GetUltimos_Trending()
+        private void GetUltimos_Trending()
         {
             List<Restaurante> ret = new List<Restaurante>();
 
             List<RestaurantesVisitados> restVis = new List<RestaurantesVisitados>(db.restaurantesVisitados);
             List<RestaurantesVisitados> temp = new List<RestaurantesVisitados>();
-            DateTime data_now = new DateTime();
+            DateTime data_now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
             // seleciona ultima semana
             foreach (RestaurantesVisitados r in restVis)
             {
                 DateTime data_vis = new DateTime(r.data_ano, r.data_mes, r.data_dia);
-                data_vis.AddDays(7);
-                if (data_vis >= data_now) temp.Add(r);
+                if (data_vis.AddDays(7) >= data_now)
+                {
+                    temp.Add(r);
+                }
             }
 
             //int id  ->  int visitas
@@ -91,12 +98,42 @@ namespace Aplicacao.Interface
                 foreach(Restaurante r in db.restaurante)
                     if (i == r.id)
                     {
+                        DisplayAlert("ok", r.id.ToString(), "ok");
                         ret.Add(r);
                         break;
                     }
             }
+            foreach(Restaurante r in ret)
+            {
+                AddTrending(r);
+            }
+        }
 
-            return ret;
+        private void AddTrending(Restaurante res)
+        {
+            Image image = new Image
+            {
+                Aspect = Aspect.AspectFill,
+                WidthRequest = 70,
+                HeightRequest = 70
+            };
+            image.Source = ImageSource.FromUri(new Uri(res.imagem));
+            Button but = new Button
+            {
+                BackgroundColor = Color.Transparent,
+                WidthRequest = 70,
+                HeightRequest = 70,
+            };
+            but.AutomationId = res.id.ToString();
+            but.Clicked += ShowRestaurante;
+            SugestoesImagensTrending.Children.Add(image);
+            SugestoesButtonsTrending.Children.Add(but);
+            Label lab = new Label { Text = res.nome, HorizontalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold };
+            SugestoesInfoTrending.Children.Add(lab);
+            Label labe = new Label { Text = "Preço Médio: " + res.preco_medio + "€" };
+            SugestoesInfoTrending.Children.Add(labe);
+            Label la = new Label { Text = "Distancia: N/A     " + "Rating: " + res.rating };
+            SugestoesInfoTrending.Children.Add(la);
         }
 
 
@@ -237,42 +274,45 @@ namespace Aplicacao.Interface
         //Inicia os switchs dependendo do seu perfil
         private void CarregaPerfil()
         {
-            List<Restaurante> historico = GetHistoricoRest_User();
-            foreach (FiltroCozinha f in db.filtroCozinha)
+            if (db.curr_user != null)
             {
-                if (f.filtro == db.curr_user.filtro)
+                List<Restaurante> historico = GetHistoricoRest_User();
+                foreach (FiltroCozinha f in db.filtroCozinha)
                 {
-                    if (f.cozinha == 1) Switch1.IsToggled = true;
-                    else if (f.cozinha == 2) Switch2.IsToggled = true;
-                    else if (f.cozinha == 3) Switch3.IsToggled = true;
-                    else if (f.cozinha == 4) Switch4.IsToggled = true;
-                    else if (f.cozinha == 5) Switch5.IsToggled = true;
-                    else if (f.cozinha == 6) Switch6.IsToggled = true;
-                    else if (f.cozinha == 7) Switch7.IsToggled = true;
-                    else if (f.cozinha == 8) Switch8.IsToggled = true;
-                    else if (f.cozinha == 9) Switch9.IsToggled = true;
-                    else if (f.cozinha == 10) Switch10.IsToggled = true;
-                    else if (f.cozinha == 11) Switch11.IsToggled = true;
-                    else if (f.cozinha == 12) Switch12.IsToggled = true;
-                    else if (f.cozinha == 13) Switch13.IsToggled = true;
-                    else if (f.cozinha == 14) Switch14.IsToggled = true;
-                    else if (f.cozinha == 15) Switch15.IsToggled = true;
-                    else if (f.cozinha == 16) Switch16.IsToggled = true;
-                    else if (f.cozinha == 17) Switch17.IsToggled = true;
-                    else if (f.cozinha == 18) Switch18.IsToggled = true;
-                    else if (f.cozinha == 19) Switch19.IsToggled = true;
-                    else if (f.cozinha == 20) Switch20.IsToggled = true;
-                    else if (f.cozinha == 21) Switch21.IsToggled = true;
-                    else if (f.cozinha == 22) Switch22.IsToggled = true;
-                    else if (f.cozinha == 23) Switch23.IsToggled = true;
-                    else if (f.cozinha == 24) Switch24.IsToggled = true;
-                    else if (f.cozinha == 25) Switch25.IsToggled = true;
-                    else if (f.cozinha == 26) Switch26.IsToggled = true;
-                    else if (f.cozinha == 27) Switch27.IsToggled = true;
+                    if (f.filtro == db.curr_user.filtro)
+                    {
+                        if (f.cozinha == 1) Switch1.IsToggled = true;
+                        else if (f.cozinha == 2) Switch2.IsToggled = true;
+                        else if (f.cozinha == 3) Switch3.IsToggled = true;
+                        else if (f.cozinha == 4) Switch4.IsToggled = true;
+                        else if (f.cozinha == 5) Switch5.IsToggled = true;
+                        else if (f.cozinha == 6) Switch6.IsToggled = true;
+                        else if (f.cozinha == 7) Switch7.IsToggled = true;
+                        else if (f.cozinha == 8) Switch8.IsToggled = true;
+                        else if (f.cozinha == 9) Switch9.IsToggled = true;
+                        else if (f.cozinha == 10) Switch10.IsToggled = true;
+                        else if (f.cozinha == 11) Switch11.IsToggled = true;
+                        else if (f.cozinha == 12) Switch12.IsToggled = true;
+                        else if (f.cozinha == 13) Switch13.IsToggled = true;
+                        else if (f.cozinha == 14) Switch14.IsToggled = true;
+                        else if (f.cozinha == 15) Switch15.IsToggled = true;
+                        else if (f.cozinha == 16) Switch16.IsToggled = true;
+                        else if (f.cozinha == 17) Switch17.IsToggled = true;
+                        else if (f.cozinha == 18) Switch18.IsToggled = true;
+                        else if (f.cozinha == 19) Switch19.IsToggled = true;
+                        else if (f.cozinha == 20) Switch20.IsToggled = true;
+                        else if (f.cozinha == 21) Switch21.IsToggled = true;
+                        else if (f.cozinha == 22) Switch22.IsToggled = true;
+                        else if (f.cozinha == 23) Switch23.IsToggled = true;
+                        else if (f.cozinha == 24) Switch24.IsToggled = true;
+                        else if (f.cozinha == 25) Switch25.IsToggled = true;
+                        else if (f.cozinha == 26) Switch26.IsToggled = true;
+                        else if (f.cozinha == 27) Switch27.IsToggled = true;
+                    }
                 }
+                foreach (Restaurante r in historico)
+                    AddHistorico(r);
             }
-            foreach (Restaurante r in historico)
-                AddHistorico(r);
 
         }
 
@@ -319,12 +359,15 @@ namespace Aplicacao.Interface
         */
         private void PerfilButton_Clicked(object sender, EventArgs e)
         {
-            PainelPerfil.IsVisible = true;
-            PainelFiltros.IsVisible = false;
-            PainelSugestoes.IsVisible = false;
-            PainelResultados.IsVisible = false;
-            if(db.curr_user != null)
-            CarregaPerfil();
+            if (db.curr_user != null)
+            {
+                PainelPerfil.IsVisible = true;
+                PainelFiltros.IsVisible = false;
+                PainelSugestoes.IsVisible = false;
+                PainelResultados.IsVisible = false;
+                if (db.curr_user != null)
+                    CarregaPerfil();
+            }
         }
 
         /*Atualiza as views, colocando a view das sugestões visivel e todas as outras
@@ -336,7 +379,8 @@ namespace Aplicacao.Interface
             PainelFiltros.IsVisible = false;
             PainelSugestoes.IsVisible = true;
             PainelResultados.IsVisible = false;
-            GetUltimosRest_User();
+            if(db.curr_user != null) GetUltimosRest_User();
+            GetUltimos_Trending();
         }
 
         /*Atualiza as views, colocando a view dos resultados visivel e todas as outras
@@ -547,18 +591,21 @@ namespace Aplicacao.Interface
             restaurantes = new List<int>();
             List<int> perfil = new List<int>();
             Filtro filtro = null;
-            foreach(FiltroCozinha f in db.filtroCozinha)
+            if (db.curr_user != null)
             {
-                if (f.filtro == db.curr_user.filtro)
-                    perfil.Add(f.cozinha);
-            }
-
-            foreach (Filtro f in db.filtros)
-            {
-                if (f.id_filtro == db.curr_user.filtro)
+                foreach (FiltroCozinha f in db.filtroCozinha)
                 {
-                    filtro = f;
-                    break;
+                    if (f.filtro == db.curr_user.filtro)
+                        perfil.Add(f.cozinha);
+                }
+
+                foreach (Filtro f in db.filtros)
+                {
+                    if (f.id_filtro == db.curr_user.filtro)
+                    {
+                        filtro = f;
+                        break;
+                    }
                 }
             }
 
@@ -590,26 +637,34 @@ namespace Aplicacao.Interface
             //fim do reset
 
             bool adicionou = false;
-            // verificar se os retaurantes estão dentro dos requesitos
-            for (i = 0; i < restaurantes.Count; i++)
+            if (db.curr_user != null)
             {
-                adicionou = false;
-                foreach (CozinhaRestaurante c in db.cozinhaRestaurante)
+                // verificar se os retaurantes estão dentro dos requesitos
+                for (i = 0; i < restaurantes.Count; i++)
                 {
-                    if (c.restaurante == restaurantes[i] && perfil.Contains(c.cozinha) && !filtros.Contains(c.cozinha))
+                    adicionou = false;
+                    foreach (CozinhaRestaurante c in db.cozinhaRestaurante)
                     {
-                        foreach (Restaurante r in db.restaurante)
+                        if (c.restaurante == restaurantes[i] && perfil.Contains(c.cozinha) && !filtros.Contains(c.cozinha))
                         {
-                            if (r.id == restaurantes[i] && ((( (r.preco_medio <= filtro.preco_max || filtro.preco_max == 0) && (r.preco_medio <= preco_max || preco_max == 0) ) && ( (r.rating >= filtro.rating_min || filtro.rating_min == 0) && (r.rating >= rating_min || rating_min == 0)) ) || db.curr_user == null)) 
-                            { 
-                                AddResultados(restaurantes[i]);
-                                adicionou = true;
-                                break;
+                            foreach (Restaurante r in db.restaurante)
+                            {
+                                if (r.id == restaurantes[i] && ((((r.preco_medio <= filtro.preco_max || filtro.preco_max == 0) && (r.preco_medio <= preco_max || preco_max == 0)) && ((r.rating >= filtro.rating_min || filtro.rating_min == 0) && (r.rating >= rating_min || rating_min == 0))) || db.curr_user == null))
+                                {
+                                    AddResultados(restaurantes[i]);
+                                    adicionou = true;
+                                    break;
+                                }
                             }
                         }
+                        if (adicionou == true) break;
                     }
-                    if (adicionou == true) break;
                 }
+            }
+            else
+            {
+                for (i = 0; i < restaurantes.Count; i++)
+                    AddResultados(restaurantes[i]);
             }
         }
 

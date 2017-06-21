@@ -92,6 +92,34 @@
                     BackgroundColor="Transparent"
                     Clicked="AddHistorico"/>
 
+            <Grid x:Name="SubstituirHistorico" Grid.Row="7" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="FloralWhite" IsVisible="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Restaurante a Substituir" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Font="Bold, 30"/>
+
+                <Label x:Name="Restaurante1" Grid.Column="0" Grid.Row="1"
+                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                <Button x:Name="ButtonRestaurante1" Grid.Column="0" Grid.Row="1"
+                        BackgroundColor="Transparent"/>
+
+                <Label x:Name="Restaurante2" Grid.Column="1" Grid.Row="1"
+                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                <Button x:Name="ButtonRestaurante2" Grid.Column="1" Grid.Row="1"
+                        BackgroundColor="Transparent"/>
+
+            </Grid>
+
             <Label Grid.Row="10" Grid.Column="1"
                    Text="Adicionar ao Histórico" HorizontalTextAlignment="End"
                    Font="Bold, 15" TextColor="White" VerticalTextAlignment="End"/>

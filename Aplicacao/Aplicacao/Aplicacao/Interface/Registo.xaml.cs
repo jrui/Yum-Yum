@@ -40,9 +40,16 @@ namespace Aplicacao.Interface
                     }
                     if (!existente)
                     {
-                        Utilizador novo = new Utilizador(db.utilizador.Count + 1, Email.Text, Utilizador.Text, Password.Text, 0);
+                        Utilizador novo = new Utilizador(db.utilizador.Count + 1, Email.Text, Utilizador.Text, Password.Text, db.filtros.Count+1);
                         db.utilizador.Add(novo);
                         db.curr_user = novo;
+                        Filtro filtro = new Filtro(db.filtros.Count + 1, 0, 0, 0);
+                        db.filtros.Add(filtro);
+                        for(int i = 1; i <= 27; i++)
+                        {
+                            FiltroCozinha cozinha = new FiltroCozinha(i, db.filtros.Count);
+                            db.filtroCozinha.Add(cozinha);
+                        }
                         await Navigation.PushAsync(new MenuPrincipal(db));
                     }
                 }

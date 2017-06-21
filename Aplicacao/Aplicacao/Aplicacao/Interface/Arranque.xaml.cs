@@ -25,6 +25,7 @@ namespace Aplicacao
 
         private async void ConvidadoButton_Clicked(object sender, EventArgs e)
         {
+            database.curr_user = null;
             await Navigation.PushAsync(new MenuPrincipal(database));
         }
 

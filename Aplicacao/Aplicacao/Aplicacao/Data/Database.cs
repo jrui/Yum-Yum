@@ -124,6 +124,14 @@ namespace Aplicacao
             ret.Add(new RestaurantesVisitados(25, 4, 2017, 5, 58));
             ret.Add(new RestaurantesVisitados(3, 5, 2017, 5, 64));
             ret.Add(new RestaurantesVisitados(10, 6, 2017, 5, 53));
+            ret.Add(new RestaurantesVisitados(21, 6, 2017, 4, 85));
+            ret.Add(new RestaurantesVisitados(20, 6, 2017, 4, 25));
+            ret.Add(new RestaurantesVisitados(19, 4, 2017, 4, 14));
+            ret.Add(new RestaurantesVisitados(18, 4, 2017, 5, 36));
+            ret.Add(new RestaurantesVisitados(17, 3, 2017, 5, 57));
+            ret.Add(new RestaurantesVisitados(16, 4, 2017, 5, 58));
+            ret.Add(new RestaurantesVisitados(15, 5, 2017, 5, 64));
+            ret.Add(new RestaurantesVisitados(14, 6, 2017, 5, 53));
             return ret;
         }
 
