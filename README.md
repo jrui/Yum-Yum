@@ -4,7 +4,7 @@ Gives restaurant suggestions accordingly to desired specifications.
 <br>
 <br>
 Project developed by:
-  - [Bruno Machado](https://github.com/Axebutcher)
+  - [Bruno Machado](https://github.com/BrunoSMachado)
   - [Carlos Silva](https://carsilva.github.io/)
   - [João Miguel](http://jrsmiguel.me/)
   - [Paulo Guedes](https://github.com/Oluap18)
